@@ -93,7 +93,9 @@ export const Vulnerabilities = () => {
 
               <Tr>
                 <Td>
-                  <Small className="block mb-0.5 font-bold">postcss</Small>
+                  <Small className="block mb-0.5 font-bold">
+                    websocket-extensions
+                  </Small>
                   <HeadingThree className="mb-1">
                     Regular Expression Denial of Service
                   </HeadingThree>
