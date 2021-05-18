@@ -6,7 +6,7 @@ const propTypes = {
 };
 
 export const HeadingOne = ({ children }) => (
-  <h1 className="font-bold text-gray-700 text-xl">{children}</h1>
+  <h1 className="font-bold text-gray-700 text-2xl">{children}</h1>
 );
 
 HeadingOne.propTypes = propTypes;

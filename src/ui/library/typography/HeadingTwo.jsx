@@ -6,7 +6,7 @@ const propTypes = {
 };
 
 export const HeadingTwo = ({ children }) => (
-  <h2 className="font-bold text-gray-700 text-lg">{children}</h2>
+  <h2 className="font-bold text-gray-700 text-xl">{children}</h2>
 );
 
 HeadingTwo.propTypes = propTypes;
