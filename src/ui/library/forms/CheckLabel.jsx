@@ -6,7 +6,9 @@ const propTypes = {
 };
 
 export const CheckLabel = ({ children }) => (
-  <label className="flex items-center my-2 text-gray-600">{children}</label>
+  <label className="cursor-pointer flex items-center my-2 text-gray-600">
+    {children}
+  </label>
 );
 
 CheckLabel.propTypes = propTypes;
