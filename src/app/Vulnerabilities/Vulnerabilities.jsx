@@ -4,6 +4,7 @@ import { Filters } from "./Filters";
 
 import {
   HeadingOne,
+  HeadingThree,
   Small,
   Tag,
   Table,
@@ -41,9 +42,9 @@ export const Vulnerabilities = () => {
               <Tr>
                 <Td>
                   <Small className="block mb-0.5 font-bold">jspdf</Small>
-                  <p className="font-bold mb-1 text-gray-700">
+                  <HeadingThree className="mb-1">
                     Cross-site scripting in jspdf
-                  </p>
+                  </HeadingThree>
                   <Tag theme="success" title="Severity: Low">
                     Low
                   </Tag>
@@ -59,9 +60,9 @@ export const Vulnerabilities = () => {
               <Tr>
                 <Td>
                   <Small className="block mb-0.5 font-bold">postcss</Small>
-                  <p className="font-bold mb-1 text-gray-700">
+                  <HeadingThree className="mb-1">
                     Regular Expression Denial of Service
-                  </p>
+                  </HeadingThree>
                   <Tag theme="warning" title="Severity: High">
                     High
                   </Tag>
@@ -77,7 +78,7 @@ export const Vulnerabilities = () => {
                   <Small className="block mb-0.5 font-bold">
                     fastify-http-proxy
                   </Small>
-                  <p className="font-bold mb-1 text-gray-700">Prefix escape</p>
+                  <HeadingThree className="mb-1">Prefix escape</HeadingThree>
                   <Tag theme="info" title="Severity: Info">
                     Info
                   </Tag>
@@ -93,9 +94,9 @@ export const Vulnerabilities = () => {
               <Tr>
                 <Td>
                   <Small className="block mb-0.5 font-bold">postcss</Small>
-                  <p className="font-bold mb-1 text-gray-700">
+                  <HeadingThree className="mb-1">
                     Regular Expression Denial of Service
-                  </p>
+                  </HeadingThree>
                   <Tag theme="alert" title="Severity: Moderate">
                     Moderate
                   </Tag>
@@ -111,9 +112,9 @@ export const Vulnerabilities = () => {
               <Tr>
                 <Td>
                   <Small className="block mb-0.5 font-bold">nodemailer</Small>
-                  <p className="font-bold mb-1 text-gray-700">
+                  <HeadingThree className="mb-1">
                     Command Injection
-                  </p>
+                  </HeadingThree>
                   <Tag theme="danger" title="Severity: Critical">
                     Critical
                   </Tag>
