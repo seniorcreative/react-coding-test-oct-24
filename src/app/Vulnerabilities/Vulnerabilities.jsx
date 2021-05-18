@@ -22,7 +22,7 @@ export const Vulnerabilities = () => {
       </div>
 
       <div className="flex-1 md:flex-auto">
-        <div className="bg-white border border-gray-300 mx-auto p-4 md:p-6 rounded-lg shadow-sm">
+        <div className="bg-white border border-gray-300 mx-auto p-4 md:p-6 rounded-lg lg:rounded-xl shadow-sm lg:shadow-md">
           <div className="mb-4">
             <HeadingOne>Security advisories</HeadingOne>
             <Small>Showing 15 items</Small>
