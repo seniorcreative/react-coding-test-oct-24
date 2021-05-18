@@ -31,8 +31,10 @@ The challenge should use whichever React-based conventions or libraries you are 
 
 ### Additional notes
 
+- If you find anything in the app which you needed to fix, add it as a note to `SOLUTION.md`.
 - How will a user know which filters are currently applied?
 - If you had to retrieve NPM advisory data from an API endpoint, how might you go about it?
+- What steps would you take to create an "Advisory detail" template and output additional detail about an advisory?
 
 ### SOLUTION.md
 
