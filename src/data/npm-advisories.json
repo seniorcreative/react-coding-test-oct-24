@@ -1,0 +1,2554 @@
+[
+  {
+    "id": 1712,
+    "created": "2021-05-17T21:01:47.586Z",
+    "updated": "2021-05-17T21:02:45.587Z",
+    "deleted": null,
+    "title": "Cross-site scripting in jspdf",
+    "found_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "reported_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "module_name": "jspdf",
+    "cves": [
+      "CVE-2020-7690"
+    ],
+    "vulnerable_versions": "<2.0.0",
+    "patched_versions": ">=2.0.0",
+    "overview": "In `jspdf` before version 2.0.0 it is possible to inject JavaScript code via the html method.",
+    "recommendation": "Upgrade to version 2.0.0 or later",
+    "references": "- [CVE](https://nvd.nist.gov/vuln/detail/CVE-2020-7690)\n- [GitHub Advisory](https://github.com/advisories/GHSA-vh59-v9r5-4mh4)\n",
+    "access": "public",
+    "severity": "moderate",
+    "cwe": "CWE-79",
+    "formatted": {
+      "created": "May 17th, 2021"
+    }
+  },
+  {
+    "id": 1711,
+    "created": "2021-05-17T20:54:50.856Z",
+    "updated": "2021-05-17T20:56:34.930Z",
+    "deleted": null,
+    "title": "cookie tossing attack",
+    "found_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "reported_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "module_name": "fastify-csrf",
+    "cves": [
+      "CVE-2021-29624"
+    ],
+    "vulnerable_versions": "<3.1.0",
+    "patched_versions": ">=3.1.0",
+    "overview": "Users that used `fastify-csrf` with the \"double submit\" mechanism using cookies with an application deployed across multiple subdomains, e.g. \"heroku\"-style platform as a service. ",
+    "recommendation": "Upgrade to version 3.1.0 or later",
+    "references": "- [CVE](https://nvd.nist.gov/vuln/detail/CVE-2021-29624)\n- [GitHub Advisory](https://github.com/advisories/GHSA-rc4q-9m69-gqp8)\n",
+    "access": "public",
+    "severity": "moderate",
+    "cwe": "CWE-352",
+    "formatted": {
+      "created": "May 17th, 2021"
+    }
+  },
+  {
+    "id": 1710,
+    "created": "2021-05-13T20:29:46.369Z",
+    "updated": "2021-05-13T20:31:49.239Z",
+    "deleted": null,
+    "title": "Regular Expression Denial of Service",
+    "found_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "reported_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "module_name": "websocket-extensions",
+    "cves": [
+      "CVE-2020-7662"
+    ],
+    "vulnerable_versions": "<0.1.4",
+    "patched_versions": ">=0.1.4",
+    "overview": "In `websocket-extensions` before version 0.1.4, there is a vulnerability which allows an attacker to exhaust the server's capacity to process\nincoming requests by sending a WebSocket handshake request containing a header\nof the following form:\n\n    `Sec-WebSocket-Extensions: a; b=\"\\c\\c\\c\\c\\c\\c\\c\\c\\c\\c ...`\n\nThat is, a header containing an unclosed string parameter value whose content is\na repeating two-byte sequence of a backslash and some other character. The\nparser takes exponential time to reject this header as invalid, and this will\nblock the processing of any other work on the same thread. Thus if you are\nrunning a single-threaded server, such a request can render your service\ncompletely unavailable.",
+    "recommendation": "Upgrade to version 0.1.4 or later",
+    "references": "- [CVE](https://nvd.nist.gov/vuln/detail/CVE-2020-7662)\n- [GitHub Advisory](https://github.com/advisories/GHSA-g78m-2chm-r7qv)\n",
+    "access": "public",
+    "severity": "moderate",
+    "cwe": "CWE-400",
+    "formatted": {
+      "created": "May 13th, 2021"
+    }
+  },
+  {
+    "id": 1709,
+    "created": "2021-05-11T16:44:51.126Z",
+    "updated": "2021-05-11T16:45:59.712Z",
+    "deleted": null,
+    "title": "Regular Expression Denial of Service (ReDoS)",
+    "found_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "reported_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "module_name": "jspdf",
+    "cves": [
+      "CVE-2021-23353"
+    ],
+    "vulnerable_versions": "<2.3.1",
+    "patched_versions": ">=2.3.1",
+    "overview": "`jspdf` before version 2.3.1 has a regular expression denial-of-service via the `addImage` function.",
+    "recommendation": "Upgrade to version 2.3.1 or later",
+    "references": "- [CVE](https://nvd.nist.gov/vuln/detail/CVE-2021-23353)\n- [GitHub Advisory](https://github.com/advisories/GHSA-57f3-gghm-9mhc)\n",
+    "access": "public",
+    "severity": "high",
+    "cwe": "CWE-400",
+    "formatted": {
+      "created": "May 11th, 2021"
+    }
+  },
+  {
+    "id": 1708,
+    "created": "2021-05-10T19:18:06.240Z",
+    "updated": "2021-05-10T19:22:23.242Z",
+    "deleted": null,
+    "title": "Command Injection",
+    "found_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "reported_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "module_name": "nodemailer",
+    "cves": [
+      "CVE-2020-7769"
+    ],
+    "vulnerable_versions": "<6.4.16",
+    "patched_versions": ">=6.4.16",
+    "overview": "`nodemailer` before version 6.4.16 is vulnerable to command injection. Use of crafted recipient email addresses may result in arbitrary command flag injection in sendmail transport for sending mails.",
+    "recommendation": "Upgrade to version 6.4.16 or later",
+    "references": "- [CVE](https://nvd.nist.gov/vuln/detail/CVE-2020-7769)\n- [GitHub Advisory](https://github.com/advisories/GHSA-48ww-j4fc-435p)\n",
+    "access": "public",
+    "severity": "critical",
+    "cwe": "CWE-74",
+    "formatted": {
+      "created": "May 10th, 2021"
+    }
+  },
+  {
+    "id": 1707,
+    "created": "2021-05-10T19:18:00.440Z",
+    "updated": "2021-05-10T19:21:42.821Z",
+    "deleted": null,
+    "title": "Prototype Pollution",
+    "found_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "reported_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "module_name": "@grpc/grpc-js",
+    "cves": [
+      "CVE-2020-7768"
+    ],
+    "vulnerable_versions": "<1.1.8",
+    "patched_versions": ">=1.1.8",
+    "overview": "\"The package `grpc` before 1.24.4 and the package `@grpc/grpc-js` before 1.1.8 are vulnerable to Prototype Pollution via loadPackageDefinition.\"",
+    "recommendation": "Upgrade to version 1.1.8 or later",
+    "references": "- [CVE](https://nvd.nist.gov/vuln/detail/CVE-2020-7768)\n- [GitHub Advisory](https://github.com/advisories/GHSA-pp75-xfpw-37g9)\n",
+    "access": "public",
+    "severity": "high",
+    "cwe": "CWE-74",
+    "formatted": {
+      "created": "May 10th, 2021"
+    }
+  },
+  {
+    "id": 1706,
+    "created": "2021-05-10T19:17:56.360Z",
+    "updated": "2021-05-14T16:27:07.313Z",
+    "deleted": null,
+    "title": "Arbitrary JavaScript Execution",
+    "found_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "reported_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "module_name": "json-ptr",
+    "cves": [
+      "CVE-2020-7766"
+    ],
+    "vulnerable_versions": "<2.1.0",
+    "patched_versions": ">=2.1.0",
+    "overview": "This affects versions of package `json-ptr` before 2.1.0. The issue occurs in the set operation (https://flitbit.github.io/json-ptr/classes/_src_pointer_.jsonpointer.htmlset) when the force flag is set to true. The function recursively set the property in the target object, however it does not properly check the key being set, leading to a prototype pollution.",
+    "recommendation": "Upgrade to version `2.1.0` or later",
+    "references": "- [CVE](https://nvd.nist.gov/vuln/detail/CVE-2020-7766)\n- [GitHub Advisory](https://github.com/advisories/GHSA-x5r6-x823-9848)\n",
+    "access": "public",
+    "severity": "high",
+    "cwe": "CWE-74",
+    "formatted": {
+      "created": "May 10th, 2021"
+    }
+  },
+  {
+    "id": 1705,
+    "created": "2021-05-10T19:17:47.025Z",
+    "updated": "2021-05-10T19:19:46.346Z",
+    "deleted": null,
+    "title": "Regular Expression Denial of Service",
+    "found_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "reported_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "module_name": "npm-user-validate",
+    "cves": [
+      "CVE-2020-7754"
+    ],
+    "vulnerable_versions": "<1.0.1",
+    "patched_versions": ">=1.0.1",
+    "overview": "`npm-user-validate` before 1.0.1 is vulnerable to regular expression denial of service. The regex that validates user emails took exponentially longer to process long input strings beginning with @ characters.",
+    "recommendation": "Upgrade to version 1.0.1 or later",
+    "references": "- [CVE](https://nvd.nist.gov/vuln/detail/CVE-2020-7754)\n- [GitHub Advisory](https://github.com/advisories/GHSA-pw54-mh39-w3hc)\n",
+    "access": "public",
+    "severity": "high",
+    "cwe": "CWE-400",
+    "formatted": {
+      "created": "May 10th, 2021"
+    }
+  },
+  {
+    "id": 1704,
+    "created": "2021-05-10T18:51:27.134Z",
+    "updated": "2021-05-10T18:57:16.112Z",
+    "deleted": null,
+    "title": "Prototype pollution in chart.js",
+    "found_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "reported_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "module_name": "chart.js",
+    "cves": [
+      "CVE-2020-7746"
+    ],
+    "vulnerable_versions": "<2.9.4",
+    "patched_versions": ">=2.9.4",
+    "overview": "In `chart.js` before version 2.9.4 the options parameter is not properly sanitized when it is processed. When the options are processed, the existing options (or the defaults options) are deeply merged with provided options. However, during this operation, the keys of the object being set are not checked, leading to a prototype pollution.",
+    "recommendation": "Upgrade to version 2.9.4 or later",
+    "references": "- [CVE](https://nvd.nist.gov/vuln/detail/CVE-2020-7746)\n- [GitHub Advisory](https://github.com/advisories/GHSA-h68q-55jf-x68w)\n",
+    "access": "public",
+    "severity": "high",
+    "cwe": "CWE-20",
+    "formatted": {
+      "created": "May 10th, 2021"
+    }
+  },
+  {
+    "id": 1703,
+    "created": "2021-05-10T18:51:17.793Z",
+    "updated": "2021-05-10T18:56:42.194Z",
+    "deleted": null,
+    "title": "Cross-Site Scripting",
+    "found_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "reported_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "module_name": "reveal.js",
+    "cves": [
+      "CVE-2020-8127"
+    ],
+    "vulnerable_versions": "<3.9.2",
+    "patched_versions": ">=3.9.2",
+    "overview": "Insufficient validation in cross-origin communication (postMessage) in `reveal.js` version 3.9.1 and earlier allow attackers to perform cross-site scripting attacks.",
+    "recommendation": "Upgrade to version 3.9.2 or later",
+    "references": "- [CVE](https://nvd.nist.gov/vuln/detail/CVE-2020-8127)\n- [GitHub Advisory](https://github.com/advisories/GHSA-6vwx-mwp8-fh44)\n",
+    "access": "public",
+    "severity": "moderate",
+    "cwe": "CWE-79",
+    "formatted": {
+      "created": "May 10th, 2021"
+    }
+  },
+  {
+    "id": 1702,
+    "created": "2021-05-10T18:48:59.267Z",
+    "updated": "2021-05-10T18:55:43.131Z",
+    "deleted": null,
+    "title": "Regular expression denial of Service",
+    "found_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "reported_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "module_name": "codemirror",
+    "cves": [
+      "CVE-2020-7760"
+    ],
+    "vulnerable_versions": "<5.58.2",
+    "patched_versions": ">=5.58.2",
+    "overview": "`codemirror` before 5.58.2 is vulnerable to a regular expression denial of service.\n The vulnerable regular expression is located in https://github.com/codemirror/CodeMirror/blob/cdb228ac736369c685865b122b736cd0d397836c/mode/javascript/javascript.jsL129. The ReDOS vulnerability of the regex is mainly due to the sub-pattern (s|/*.*?*/)*",
+    "recommendation": "Upgrade to version 5.58.2 or later",
+    "references": "- [CVE](https://nvd.nist.gov/vuln/detail/CVE-2020-7760)\n- [GitHub Advisory](https://github.com/advisories/GHSA-4gw3-8f77-f72c)\n",
+    "access": "public",
+    "severity": "moderate",
+    "cwe": "CWE-400",
+    "formatted": {
+      "created": "May 10th, 2021"
+    }
+  },
+  {
+    "id": 1701,
+    "created": "2021-05-10T18:48:49.184Z",
+    "updated": "2021-05-10T18:53:42.711Z",
+    "deleted": null,
+    "title": "Regular Expression Denial of Service",
+    "found_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "reported_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "module_name": "dat.gui",
+    "cves": [
+      "CVE-2020-7755"
+    ],
+    "vulnerable_versions": ">=0.0.0",
+    "patched_versions": "<0.0.0",
+    "overview": "All versions of package `dat.gui` are vulnerable to Regular Expression Denial of Service (ReDoS) via specifically crafted rgb and rgba values.",
+    "recommendation": "Avoid using `dat.gui` as there is no current safe version of this module",
+    "references": "- [CVE](https://nvd.nist.gov/vuln/detail/CVE-2020-7755)\n- [GitHub Advisory](https://github.com/advisories/GHSA-chwr-hf3w-c984)\n",
+    "access": "public",
+    "severity": "high",
+    "cwe": "CWE-400",
+    "formatted": {
+      "created": "May 10th, 2021"
+    }
+  },
+  {
+    "id": 1700,
+    "created": "2021-05-10T18:48:44.988Z",
+    "updated": "2021-05-10T18:53:15.621Z",
+    "deleted": null,
+    "title": "Regular Expression Denial of Service in trim",
+    "found_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "reported_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "module_name": "trim",
+    "cves": [
+      "CVE-2020-7753"
+    ],
+    "vulnerable_versions": "<0.0.3",
+    "patched_versions": ">=0.0.3",
+    "overview": "Versions of `trim` lower than 0.0.3 are vulnerable to Regular Expression Denial of Service (ReDoS) via trim().",
+    "recommendation": "Upgrade to version 0.0.3 or later",
+    "references": "- [CVE](https://nvd.nist.gov/vuln/detail/CVE-2020-7753)\n- [GitHub Advisory](https://github.com/advisories/GHSA-w5p7-h5w8-2hfq)\n",
+    "access": "public",
+    "severity": "high",
+    "cwe": "CWE-400",
+    "formatted": {
+      "created": "May 10th, 2021"
+    }
+  },
+  {
+    "id": 1699,
+    "created": "2021-05-10T18:48:40.985Z",
+    "updated": "2021-05-10T18:52:12.156Z",
+    "deleted": null,
+    "title": "Authorization Bypass",
+    "found_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "reported_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "module_name": "strapi",
+    "cves": [
+      "CVE-2020-27664"
+    ],
+    "vulnerable_versions": "<3.2.5",
+    "patched_versions": ">=3.2.5",
+    "overview": "admin/src/containers/InputModalStepperProvider/index.js in `strapi` before 3.2.5 has unwanted /proxy?url= functionality.",
+    "recommendation": "Upgrade to version 3.2.5 or later",
+    "references": "- [CVE](https://nvd.nist.gov/vuln/detail/CVE-2020-27664)\n- [GitHub Advisory](https://github.com/advisories/GHSA-7frv-9phw-vrvr)\n",
+    "access": "public",
+    "severity": "critical",
+    "cwe": "CWE-862",
+    "formatted": {
+      "created": "May 10th, 2021"
+    }
+  },
+  {
+    "id": 1698,
+    "created": "2021-05-10T18:40:30.036Z",
+    "updated": "2021-05-10T18:42:49.045Z",
+    "deleted": null,
+    "title": "Prototype Pollution",
+    "found_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "reported_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "module_name": "mathjs",
+    "cves": [
+      "CVE-2020-7743"
+    ],
+    "vulnerable_versions": "<7.5.1",
+    "patched_versions": ">=7.5.1",
+    "overview": "`mathjs` before version 7.5.1 is vulnerable to Prototype Pollution via the `deepExtend` function that runs upon configuration updates.",
+    "recommendation": "Upgrade to version 7.5.1 or later",
+    "references": "- [CVE](https://nvd.nist.gov/vuln/detail/CVE-2020-7743)\n- [GitHub Advisory](https://github.com/advisories/GHSA-x2fc-mxcx-w4mf)\n",
+    "access": "public",
+    "severity": "high",
+    "cwe": "CWE-915",
+    "formatted": {
+      "created": "May 10th, 2021"
+    }
+  },
+  {
+    "id": 1697,
+    "created": "2021-05-10T18:40:25.054Z",
+    "updated": "2021-05-10T18:42:09.280Z",
+    "deleted": null,
+    "title": "Prototype Pollution",
+    "found_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "reported_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "module_name": "simpl-schema",
+    "cves": [
+      "CVE-2020-7742"
+    ],
+    "vulnerable_versions": "<1.10.2",
+    "patched_versions": ">=1.10.2",
+    "overview": "`simpl-schema` before 1.10.2 is vulnerable to prototype pollution. Attacker controlled input into a schema could result in remote code execution within the scope of the surrounding application.",
+    "recommendation": "Upgrade to version 1.10.2 or later",
+    "references": "- [CVE](https://nvd.nist.gov/vuln/detail/CVE-2020-7742)\n- [GitHub Advisory](https://github.com/advisories/GHSA-9mx2-prfp-8hqp)\n",
+    "access": "public",
+    "severity": "high",
+    "cwe": "CWE-1321",
+    "formatted": {
+      "created": "May 10th, 2021"
+    }
+  },
+  {
+    "id": 1696,
+    "created": "2021-05-10T18:40:19.016Z",
+    "updated": "2021-05-10T18:41:31.604Z",
+    "deleted": null,
+    "title": "Prototype Pollution",
+    "found_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "reported_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "module_name": "json-pointer",
+    "cves": [
+      "CVE-2020-7709"
+    ],
+    "vulnerable_versions": "<0.6.1",
+    "patched_versions": ">=0.6.1",
+    "overview": "`json-pointer` before 0.6.1 is vulnerable to prototype pollution. Multiple reference of object using slash is supported.",
+    "recommendation": "Upgrade to version 0.6.1 or later",
+    "references": "- [CVE](https://nvd.nist.gov/vuln/detail/CVE-2020-7709)\n- [GitHub Advisory](https://github.com/advisories/GHSA-7mg4-w3w5-x5pc)\n",
+    "access": "public",
+    "severity": "moderate",
+    "cwe": "CWE-20",
+    "formatted": {
+      "created": "May 10th, 2021"
+    }
+  },
+  {
+    "id": 1695,
+    "created": "2021-05-10T15:38:40.944Z",
+    "updated": "2021-05-10T15:45:18.394Z",
+    "deleted": null,
+    "title": "Cross-Site Scripting",
+    "found_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "reported_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "module_name": "quill",
+    "cves": [
+      "CVE-2021-3163"
+    ],
+    "vulnerable_versions": ">=0.0.0",
+    "patched_versions": "<0.0.0",
+    "overview": "A vulnerability in the HTML editor of Slab Quill allows an attacker to execute arbitrary JavaScript by storing an XSS payload (a crafted onloadstart attribute of an IMG element) in a text field. No patch exists and no further releases are planned.",
+    "recommendation": "Avoid using `quill` as there is no current safe version of this module",
+    "references": "- [CVE](https://nvd.nist.gov/vuln/detail/CVE-2021-3163)\n- [GitHub Advisory](https://github.com/advisories/GHSA-4943-9vgg-gr5r)\n",
+    "access": "public",
+    "severity": "moderate",
+    "cwe": "CWE-79",
+    "formatted": {
+      "created": "May 10th, 2021"
+    }
+  },
+  {
+    "id": 1694,
+    "created": "2021-05-10T15:38:34.265Z",
+    "updated": "2021-05-10T15:44:27.592Z",
+    "deleted": null,
+    "title": "Prototype Pollution",
+    "found_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "reported_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "module_name": "swiper",
+    "cves": [
+      "CVE-2021-23370"
+    ],
+    "vulnerable_versions": "<6.5.1",
+    "patched_versions": ">=6.5.1",
+    "overview": "Versions of `swiper` before 6.5.1 are susceptible to prototype pollution.",
+    "recommendation": "Upgrade to version 6.5.1 or later",
+    "references": "- [CVE](https://nvd.nist.gov/vuln/detail/CVE-2021-23370)\n- [GitHub Advisory](https://github.com/advisories/GHSA-p3hc-fv2j-rp68)\n",
+    "access": "public",
+    "severity": "critical",
+    "cwe": "CWE-1321",
+    "formatted": {
+      "created": "May 10th, 2021"
+    }
+  },
+  {
+    "id": 1693,
+    "created": "2021-05-10T15:38:31.238Z",
+    "updated": "2021-05-10T15:44:02.027Z",
+    "deleted": null,
+    "title": "Regular Expression Denial of Service",
+    "found_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "reported_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "module_name": "postcss",
+    "cves": [
+      "CVE-2021-23368"
+    ],
+    "vulnerable_versions": ">=7.0.0 <8.2.10",
+    "patched_versions": ">=8.2.10",
+    "overview": "`postcss` from 7.0.0 and before 8.2.10 are vulnerable to Regular Expression Denial of Service (ReDoS) during source map parsing.",
+    "recommendation": "Upgrade to version 8.2.10 or later",
+    "references": "- [CVE](https://nvd.nist.gov/vuln/detail/CVE-2021-23368)\n- [GitHub Advisory](https://github.com/advisories/GHSA-hwj9-h5mp-3pm3)\n",
+    "access": "public",
+    "severity": "moderate",
+    "cwe": "CWE-400",
+    "formatted": {
+      "created": "May 10th, 2021"
+    }
+  },
+  {
+    "id": 1692,
+    "created": "2021-05-07T16:50:08.281Z",
+    "updated": "2021-05-07T16:53:57.874Z",
+    "deleted": null,
+    "title": "OS Command Injection in ng-packagr",
+    "found_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "reported_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "module_name": "ng-packagr",
+    "cves": [
+      "CVE-2020-7735"
+    ],
+    "vulnerable_versions": "<10.1.1",
+    "patched_versions": ">=10.1.1",
+    "overview": "`ng-packagr` before 10.1.1 are vulnerable to Command Injection via the styleIncludePaths option.",
+    "recommendation": "Upgrade to version 10.1.1 or later",
+    "references": "- [CVE](https://nvd.nist.gov/vuln/detail/CVE-2020-7735)\n- [GitHub Advisory](https://github.com/advisories/GHSA-qm28-7hqv-wg5j)\n",
+    "access": "public",
+    "severity": "moderate",
+    "cwe": "CWE-78",
+    "formatted": {
+      "created": "May 7th, 2021"
+    }
+  },
+  {
+    "id": 1691,
+    "created": "2021-05-07T16:49:09.096Z",
+    "updated": "2021-05-07T16:53:25.689Z",
+    "deleted": null,
+    "title": "Cross-site scripting in bootstrap-select",
+    "found_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "reported_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "module_name": "bootstrap-select",
+    "cves": [
+      "CVE-2019-20921"
+    ],
+    "vulnerable_versions": "<1.13.6",
+    "patched_versions": ">=1.13.6",
+    "overview": "`bootstrap-select` before 1.13.6 allows Cross-Site Scripting (XSS). It does not escape title values in OPTION elements. This may allow attackers to execute arbitrary JavaScript in a victim's browser.",
+    "recommendation": "Upgrade to version 1.13.6 or later",
+    "references": "- [CVE](https://nvd.nist.gov/vuln/detail/CVE-2019-20921)\n- [GitHub Advisory](https://github.com/advisories/GHSA-7c82-mp33-r854)\n",
+    "access": "public",
+    "severity": "moderate",
+    "cwe": "CWE-79",
+    "formatted": {
+      "created": "May 7th, 2021"
+    }
+  },
+  {
+    "id": 1690,
+    "created": "2021-05-07T16:48:20.572Z",
+    "updated": "2021-05-07T16:51:47.230Z",
+    "deleted": null,
+    "title": "Uncontrolled Resource Consumption in json-bigint",
+    "found_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "reported_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "module_name": "json-bigint",
+    "cves": [
+      "CVE-2020-8237"
+    ],
+    "vulnerable_versions": "<1.0.0",
+    "patched_versions": ">=1.0.0",
+    "overview": "Prototype pollution in `json-bigint` package < 1.0.0 may lead to a denial-of-service (DoS) attack.",
+    "recommendation": "Upgrade to version 1.0.0 or later",
+    "references": "- [CVE](https://nvd.nist.gov/vuln/detail/CVE-2020-8237)\n- [GitHub Advisory](https://github.com/advisories/GHSA-wgfq-7857-4jcc)\n",
+    "access": "public",
+    "severity": "high",
+    "cwe": "CWE-400",
+    "formatted": {
+      "created": "May 7th, 2021"
+    }
+  },
+  {
+    "id": 1689,
+    "created": "2021-05-07T16:48:17.242Z",
+    "updated": "2021-05-07T16:50:59.561Z",
+    "deleted": null,
+    "title": "SQL Injection",
+    "found_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "reported_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "module_name": "typeorm",
+    "cves": [
+      "CVE-2020-8158"
+    ],
+    "vulnerable_versions": "<0.2.25",
+    "patched_versions": ">=0.2.25",
+    "overview": "Prototype pollution vulnerability in the `typeorm` package < 0.2.25 may allow attackers to add or modify Object properties leading to further denial of service or SQL injection attacks.",
+    "recommendation": "Upgrade to version 0.2.25 or later",
+    "references": "- [CVE](https://nvd.nist.gov/vuln/detail/CVE-2020-8158)\n- [GitHub Advisory](https://github.com/advisories/GHSA-pf2j-9qmp-jqr2)\n",
+    "access": "public",
+    "severity": "critical",
+    "cwe": "CWE-89",
+    "formatted": {
+      "created": "May 7th, 2021"
+    }
+  },
+  {
+    "id": 1688,
+    "created": "2021-05-07T16:18:45.536Z",
+    "updated": "2021-05-07T16:21:08.269Z",
+    "deleted": null,
+    "title": "Injection in gulp-scss-lint",
+    "found_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "reported_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "module_name": "gulp-scss-lint",
+    "cves": [
+      "CVE-2020-7601"
+    ],
+    "vulnerable_versions": ">=0.0.0",
+    "patched_versions": "<0.0.0",
+    "overview": "`gulp-scss-lint` through 1.0.0 allows execution of arbitrary commands. It is possible to inject arbitrary commands to the &quot;exec&quot; function located in &quot;src/command.js&quot; via the provided options.",
+    "recommendation": "Avoid using `gulp-scss-lint` as there is no current safe version of this module",
+    "references": "- [CVE](https://nvd.nist.gov/vuln/detail/CVE-2020-7601)\n- [GitHub Advisory](https://github.com/advisories/GHSA-g4hj-r7r3-9rwv)\n",
+    "access": "public",
+    "severity": "high",
+    "cwe": "CWE-74",
+    "formatted": {
+      "created": "May 7th, 2021"
+    }
+  },
+  {
+    "id": 1687,
+    "created": "2021-05-07T16:07:17.627Z",
+    "updated": "2021-05-07T16:12:31.518Z",
+    "deleted": null,
+    "title": "Buffer overflow  in canvas",
+    "found_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "reported_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "module_name": "canvas",
+    "cves": [
+      "CVE-2020-8215"
+    ],
+    "vulnerable_versions": "<1.6.11",
+    "patched_versions": ">=1.6.11",
+    "overview": "A buffer overflow is present in `canvas` versions before 1.6.11, which could lead to a Denial of Service or execution of arbitrary code when it processes a user-provided image.",
+    "recommendation": "Upgrade to version 1.6.11 or later",
+    "references": "- [CVE](https://nvd.nist.gov/vuln/detail/CVE-2020-8215)\n- [GitHub Advisory](https://github.com/advisories/GHSA-73rg-x683-m3qw)\n",
+    "access": "public",
+    "severity": "high",
+    "cwe": "CWE-120",
+    "formatted": {
+      "created": "May 7th, 2021"
+    }
+  },
+  {
+    "id": 1686,
+    "created": "2021-05-07T16:07:11.235Z",
+    "updated": "2021-05-07T16:13:54.768Z",
+    "deleted": null,
+    "title": "Deserialization of Untrusted Data in bson",
+    "found_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "reported_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "module_name": "bson",
+    "cves": [
+      "CVE-2020-7610"
+    ],
+    "vulnerable_versions": "<1.1.4",
+    "patched_versions": ">=1.1.4",
+    "overview": "Versions of `bson` before 1.1.4 are vulnerable to Deserialization of Untrusted Data. The package will ignore an unknown value for an object's _bsotype, leading to cases where an object is serialized as a document rather than the intended BSON type.",
+    "recommendation": "Upgrade to version 1.1.4 or later",
+    "references": "- [CVE](https://nvd.nist.gov/vuln/detail/CVE-2020-7610)\n- [GitHub Advisory](https://github.com/advisories/GHSA-v8w9-2789-6hhr)\n",
+    "access": "public",
+    "severity": "high",
+    "cwe": "CWE-502",
+    "formatted": {
+      "created": "May 7th, 2021"
+    }
+  },
+  {
+    "id": 1685,
+    "created": "2021-05-06T18:30:10.167Z",
+    "updated": "2021-05-06T18:32:42.711Z",
+    "deleted": null,
+    "title": "Command injection in bestzip",
+    "found_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "reported_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "module_name": "bestzip",
+    "cves": [
+      "CVE-2020-7730"
+    ],
+    "vulnerable_versions": "<2.1.7",
+    "patched_versions": ">=2.1.7",
+    "overview": "Affected versions of the package `bestzip` before 2.1.7 are vulnerable to Command Injection via the options param.",
+    "recommendation": "Upgrade to version 2.1.7 or later",
+    "references": "- [CVE](https://nvd.nist.gov/vuln/detail/CVE-2020-7730)\n- [GitHub Advisory](https://github.com/advisories/GHSA-6xv6-jpvw-cx6q)\n",
+    "access": "public",
+    "severity": "critical",
+    "cwe": "CWE-77",
+    "formatted": {
+      "created": "May 6th, 2021"
+    }
+  },
+  {
+    "id": 1684,
+    "created": "2021-05-06T18:28:27.289Z",
+    "updated": "2021-05-06T18:32:21.027Z",
+    "deleted": null,
+    "title": "Arbitrary Code Execution in grunt",
+    "found_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "reported_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "module_name": "grunt",
+    "cves": [
+      "CVE-2020-7729"
+    ],
+    "vulnerable_versions": "<1.3.0",
+    "patched_versions": ">=1.3.0",
+    "overview": "Versions of `grunt` before 1.3.0 are vulnerable to Arbitrary Code Execution due to the default usage of the function `load()` instead of its secure replacement `safeLoad()` of the package js-yaml inside grunt.file.readYAML.",
+    "recommendation": "Upgrade to version 1.3.0 or later",
+    "references": "- [CVE](https://nvd.nist.gov/vuln/detail/CVE-2020-7729)\n- [GitHub Advisory](https://github.com/advisories/GHSA-m5pj-vjjf-4m3h)\n",
+    "access": "public",
+    "severity": "high",
+    "cwe": "CWE-1188",
+    "formatted": {
+      "created": "May 6th, 2021"
+    }
+  },
+  {
+    "id": 1683,
+    "created": "2021-05-06T18:13:17.511Z",
+    "updated": "2021-05-06T18:31:41.037Z",
+    "deleted": null,
+    "title": "Prototype Pollution in locutus",
+    "found_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "reported_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "module_name": "locutus",
+    "cves": [
+      "CVE-2020-7719"
+    ],
+    "vulnerable_versions": "<2.0.12",
+    "patched_versions": ">=2.0.12",
+    "overview": "Versions of `locutus` prior to 2.0.12 are vulnerable to Prototype Pollution via the `php.strings.parse_str` function.",
+    "recommendation": "Upgrade to version 2.0.12 or later",
+    "references": "- [CVE](https://nvd.nist.gov/vuln/detail/CVE-2020-7719)\n- [GitHub Advisory](https://github.com/advisories/GHSA-f98m-q3hr-p5wq)\n",
+    "access": "public",
+    "severity": "critical",
+    "cwe": "CWE-20",
+    "formatted": {
+      "created": "May 6th, 2021"
+    }
+  },
+  {
+    "id": 1682,
+    "created": "2021-05-06T18:13:13.714Z",
+    "updated": "2021-05-06T18:30:57.184Z",
+    "deleted": null,
+    "title": "Command injection in json",
+    "found_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "reported_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "module_name": "json",
+    "cves": [
+      "CVE-2020-7712"
+    ],
+    "vulnerable_versions": "<10.0.0",
+    "patched_versions": ">=10.0.0",
+    "overview": "In versions of `json` before 10.0.0. It is possible to inject arbritary commands using the `parseLookup` function.",
+    "recommendation": "Upgrade to version 10.0.0 or later",
+    "references": "- [CVE](https://nvd.nist.gov/vuln/detail/CVE-2020-7712)\n- [GitHub Advisory](https://github.com/advisories/GHSA-3c6g-pvg8-gqw2)\n",
+    "access": "public",
+    "severity": "high",
+    "cwe": "CWE-78",
+    "formatted": {
+      "created": "May 6th, 2021"
+    }
+  },
+  {
+    "id": 1681,
+    "created": "2021-05-06T17:30:05.596Z",
+    "updated": "2021-05-06T18:07:33.649Z",
+    "deleted": null,
+    "title": "Prototype Pollution in property-expr",
+    "found_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "reported_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "module_name": "property-expr",
+    "cves": [
+      "CVE-2020-7707"
+    ],
+    "vulnerable_versions": "<2.0.3",
+    "patched_versions": ">=2.0.3",
+    "overview": "`property-expr` before 2.0.3 are vulnerable to Prototype Pollution via the setter function.",
+    "recommendation": "Upgrade to version 2.0.3 or later",
+    "references": "- [CVE](https://nvd.nist.gov/vuln/detail/CVE-2020-7707)\n- [GitHub Advisory](https://github.com/advisories/GHSA-6fw4-hr69-g3rv)\n",
+    "access": "public",
+    "severity": "high",
+    "cwe": "CWE-20",
+    "formatted": {
+      "created": "May 6th, 2021"
+    }
+  },
+  {
+    "id": 1680,
+    "created": "2021-05-06T17:30:02.247Z",
+    "updated": "2021-05-06T18:06:59.971Z",
+    "deleted": null,
+    "title": "Cross-site scripting in TinyMCE",
+    "found_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "reported_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "module_name": "tinymce",
+    "cves": [
+      "CVE-2020-17480"
+    ],
+    "vulnerable_versions": "<4.9.7 || >=5.0.0 <5.1.4",
+    "patched_versions": ">=4.9.7 <5.0.0 || >=5.1.4",
+    "overview": "`tinymce` before 4.9.7 and 5.x before 5.1.4 allows XSS in the core parser, the paste plugin, and the visualchars plugin by using the clipboard or APIs to insert content into the editor.",
+    "recommendation": "Upgrade to versions 4.9.7, 5.1.4 or later",
+    "references": "- [CVE](https://nvd.nist.gov/vuln/detail/CVE-2020-17480)\n- [GitHub Advisory](https://github.com/advisories/GHSA-p7j5-4mwm-hv86)\n",
+    "access": "public",
+    "severity": "moderate",
+    "cwe": "CWE-79",
+    "formatted": {
+      "created": "May 6th, 2021"
+    }
+  },
+  {
+    "id": 1679,
+    "created": "2021-05-06T16:15:15.048Z",
+    "updated": "2021-05-06T16:32:08.804Z",
+    "deleted": null,
+    "title": "Regular Expression Denial of Service",
+    "found_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "reported_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "module_name": "ua-parser-js",
+    "cves": [
+      "CVE-2021-27292"
+    ],
+    "vulnerable_versions": ">=0.7.14 <0.7.24",
+    "patched_versions": ">=0.7.24",
+    "overview": "`ua-parser-js` >= 0.7.14, fixed in 0.7.24, uses a regular expression which is vulnerable to denial of service. If an attacker sends a malicious User-Agent header, ua-parser-js will get stuck processing it for an extended period of time.",
+    "recommendation": "Upgrade to version 0.7.24 or later",
+    "references": "- [CVE](https://nvd.nist.gov/vuln/detail/CVE-2021-27292)\n- [GitHub Advisory](https://github.com/advisories/GHSA-78cj-fxph-m83p)\n",
+    "access": "public",
+    "severity": "high",
+    "cwe": "CWE-400",
+    "formatted": {
+      "created": "May 6th, 2021"
+    }
+  },
+  {
+    "id": 1678,
+    "created": "2021-05-06T16:15:11.933Z",
+    "updated": "2021-05-06T16:30:22.135Z",
+    "deleted": null,
+    "title": "Path traversal",
+    "found_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "reported_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "module_name": "url-parse",
+    "cves": [
+      "CVE-2021-27515"
+    ],
+    "vulnerable_versions": "<1.5.0",
+    "patched_versions": ">=1.5.0",
+    "overview": "`url-parse` before 1.5.0 mishandles certain uses of backslash such as http:\\/ and interprets the URI as a relative path.",
+    "recommendation": "Upgrade to version 1.5.0 or later",
+    "references": "- [CVE](https://nvd.nist.gov/vuln/detail/CVE-2021-27515)\n- [GitHub Advisory](https://github.com/advisories/GHSA-9m6j-fcg5-2442)\n",
+    "access": "public",
+    "severity": "high",
+    "cwe": "CWE-23",
+    "formatted": {
+      "created": "May 6th, 2021"
+    }
+  },
+  {
+    "id": 1677,
+    "created": "2021-05-06T16:15:08.412Z",
+    "updated": "2021-05-07T17:41:14.327Z",
+    "deleted": null,
+    "title": "Regular Expression Denial of Service",
+    "found_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "reported_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "module_name": "hosted-git-info",
+    "cves": [
+      "CVE-2021-23362"
+    ],
+    "vulnerable_versions": "<2.8.9 || >=3.0.0 <3.0.8",
+    "patched_versions": ">=2.8.9 <3.0.0 || >=3.0.8",
+    "overview": "`hosted-git-info` before versions 2.8.9 and 3.0.8 are vulnerable to Regular Expression Denial of Service (ReDoS) via regular expression shortcutMatch in the fromUrl function in index.js. The affected regular expression exhibits polynomial worst-case time complexity",
+    "recommendation": "Upgrade to version 3.0.8 or later",
+    "references": "- [CVE](https://nvd.nist.gov/vuln/detail/CVE-2021-23362)\n- [GitHub Advisory](https://github.com/advisories/GHSA-43f8-2h32-f4cj)\n",
+    "access": "public",
+    "severity": "moderate",
+    "cwe": "CWE-400",
+    "formatted": {
+      "created": "May 6th, 2021"
+    }
+  },
+  {
+    "id": 1676,
+    "created": "2021-05-06T16:14:59.063Z",
+    "updated": "2021-05-06T16:28:35.074Z",
+    "deleted": null,
+    "title": "Improper Input Validation",
+    "found_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "reported_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "module_name": "sanitize-html",
+    "cves": [
+      "CVE-2021-26540"
+    ],
+    "vulnerable_versions": "<2.3.2",
+    "patched_versions": ">=2.3.2",
+    "overview": "`sanitize-html` before 2.3.2 does not properly validate the hostnames set by the \"allowedIframeHostnames\" option when the \"allowIframeRelativeUrls\" is set to true, which allows attackers to bypass hostname whitelist for iframe element, related using an src value that starts with \"/\\\\example.com\".",
+    "recommendation": "Upgrade to version 2.3.2 or later",
+    "references": "- [CVE](https://nvd.nist.gov/vuln/detail/CVE-2021-26540)\n- [GitHub Advisory](https://github.com/advisories/GHSA-mjxr-4v3x-q3m4)\n",
+    "access": "public",
+    "severity": "moderate",
+    "cwe": "CWE-20",
+    "formatted": {
+      "created": "May 6th, 2021"
+    }
+  },
+  {
+    "id": 1675,
+    "created": "2021-05-06T16:14:51.778Z",
+    "updated": "2021-05-06T16:27:32.593Z",
+    "deleted": null,
+    "title": "Improper Input Validation",
+    "found_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "reported_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "module_name": "sanitize-html",
+    "cves": [
+      "CVE-2021-26539"
+    ],
+    "vulnerable_versions": "<2.3.1",
+    "patched_versions": ">=2.3.1",
+    "overview": "`sanitize-html` before 2.3.1 does not properly handle internationalized domain name (IDN) which could allow an attacker to bypass hostname whitelist validation set by the \"allowedIframeHostnames\" option.",
+    "recommendation": "Upgrade to version 2.3.1 or later",
+    "references": "- [CVE](https://nvd.nist.gov/vuln/detail/CVE-2021-26539)\n- [GitHub Advisory](https://github.com/advisories/GHSA-rjqq-98f6-6j3r)\n",
+    "access": "public",
+    "severity": "moderate",
+    "cwe": "CWE-20",
+    "formatted": {
+      "created": "May 6th, 2021"
+    }
+  },
+  {
+    "id": 1674,
+    "created": "2021-05-06T16:14:45.792Z",
+    "updated": "2021-05-06T16:26:42.768Z",
+    "deleted": null,
+    "title": "Arbitrary Code Execution",
+    "found_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "reported_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "module_name": "underscore",
+    "cves": [
+      "CVE-2021-23358"
+    ],
+    "vulnerable_versions": ">=1.3.2 <1.12.1",
+    "patched_versions": ">=1.12.1",
+    "overview": "The package `underscore` from 1.13.0-0 and before 1.13.0-2, from 1.3.2 and before 1.12.1 are vulnerable to Arbitrary Code Execution via the template function, particularly when a variable property is passed as an argument as it is not sanitized.",
+    "recommendation": "Upgrade to versions 1.12.1 or 1.13.0-2 or later",
+    "references": "- [CVE](https://nvd.nist.gov/vuln/detail/CVE-2021-23358)\n- [GitHub Advisory](https://github.com/advisories/GHSA-cf4h-3jhx-xvhq)\n",
+    "access": "public",
+    "severity": "high",
+    "cwe": "CWE-94",
+    "formatted": {
+      "created": "May 6th, 2021"
+    }
+  },
+  {
+    "id": 1673,
+    "created": "2021-05-06T16:14:39.514Z",
+    "updated": "2021-05-06T16:24:12.299Z",
+    "deleted": null,
+    "title": "Command Injection",
+    "found_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "reported_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "module_name": "lodash",
+    "cves": [
+      "CVE-2021-23337"
+    ],
+    "vulnerable_versions": "<4.17.21",
+    "patched_versions": ">=4.17.21",
+    "overview": "`lodash` versions prior to 4.17.21 are vulnerable to Command Injection via the template function.",
+    "recommendation": "Upgrade to version 4.17.21 or later",
+    "references": "- [CVE](https://nvd.nist.gov/vuln/detail/CVE-2021-23337)\n- [GitHub Advisory](https://github.com/advisories/GHSA-35jh-r3h4-6jhm)\n- [Snyk Advisory](https://snyk.io/vuln/SNYK-JS-LODASH-1040724)",
+    "access": "public",
+    "severity": "high",
+    "cwe": "CWE-77",
+    "formatted": {
+      "created": "May 6th, 2021"
+    }
+  },
+  {
+    "id": 1672,
+    "created": "2021-05-06T16:14:36.397Z",
+    "updated": "2021-05-06T16:22:43.462Z",
+    "deleted": null,
+    "title": "RSA signature validation vulnerability",
+    "found_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "reported_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "module_name": "jsrsasign",
+    "cves": [
+      "CVE-2021-30246"
+    ],
+    "vulnerable_versions": "<10.2.0",
+    "patched_versions": ">=10.2.0",
+    "overview": "### Impact\nVulnerable versions of `jsrsasign` will accept RSA signature with improper PKCS#1.5 padding.\nDecoded RSA signature value consists following form:\n01(ff...(8 or more ffs)...ff)00[ASN.1 OF DigestInfo]\nIts byte length shall be the same as RSA key length however such checking was not sufficient.\n\nTo make crafted message for practical attack is very hard.\n\n### Patches\nUsers validating RSA signature should upgrade to 10.2.0 or later.\n\n### Workarounds\nThere is no workaround. Not to use RSA signature validation in jsrsasign.",
+    "recommendation": "Upgrade to version 10.2.0 or later",
+    "references": "- [CVE](https://nvd.nist.gov/vuln/detail/CVE-2021-30246)\n- [GitHub Advisory](https://github.com/advisories/GHSA-27fj-mc8w-j9wg)\n",
+    "access": "public",
+    "severity": "critical",
+    "cwe": "CWE-347",
+    "formatted": {
+      "created": "May 6th, 2021"
+    }
+  },
+  {
+    "id": 1671,
+    "created": "2021-05-06T16:14:25.236Z",
+    "updated": "2021-05-06T16:21:12.189Z",
+    "deleted": null,
+    "title": "Denial of Service",
+    "found_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "reported_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "module_name": "chrono-node",
+    "cves": [
+      "CVE-2021-23371"
+    ],
+    "vulnerable_versions": "<2.2.4",
+    "patched_versions": ">=2.2.4",
+    "overview": "The package `chrono-node` before 2.2.4. It hangs on a date-like string with lots of embedded spaces.",
+    "recommendation": "Upgrade to version 2.2.4 or later",
+    "references": "- [CVE](https://nvd.nist.gov/vuln/detail/CVE-2021-23371)\n- [GitHub Advisory](https://github.com/advisories/GHSA-hpmr-g4pq-jhgp)\n",
+    "access": "public",
+    "severity": "high",
+    "cwe": "CWE-400",
+    "formatted": {
+      "created": "May 6th, 2021"
+    }
+  },
+  {
+    "id": 1670,
+    "created": "2021-05-06T16:14:21.669Z",
+    "updated": "2021-05-06T16:20:30.286Z",
+    "deleted": null,
+    "title": "Remote code execution when compiling templates",
+    "found_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "reported_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "module_name": "handlebars",
+    "cves": [
+      "CVE-2021-23369"
+    ],
+    "vulnerable_versions": "<4.7.7",
+    "patched_versions": ">=4.7.7",
+    "overview": "`handlebars` before 4.7.7 are vulnerable to Remote Code Execution (RCE) when selecting certain compiling options to compile templates coming from an untrusted source.",
+    "recommendation": "Upgrade to version 4.7.7 or later",
+    "references": "- [CVE](https://nvd.nist.gov/vuln/detail/CVE-2021-23369)\n- [GitHub Advisory](https://github.com/advisories/GHSA-f2jv-r9rf-7988)\n",
+    "access": "public",
+    "severity": "critical",
+    "cwe": "CWE-94",
+    "formatted": {
+      "created": "May 6th, 2021"
+    }
+  },
+  {
+    "id": 1669,
+    "created": "2021-05-06T15:53:49.441Z",
+    "updated": "2021-05-06T15:54:35.406Z",
+    "deleted": null,
+    "title": "Cross-Site Scripting",
+    "found_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "reported_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "module_name": "react-draft-wysiwyg",
+    "cves": [
+      "CVE-2021-31712"
+    ],
+    "vulnerable_versions": "<1.14.6",
+    "patched_versions": ">=1.14.6",
+    "overview": "`react-draft-wysiwyg` (aka React Draft Wysiwyg) before 1.14.6 allows a javascript: URi in a Link Target of the link decorator in decorators/Link/index.js when a draft is shared across users, leading to XSS.",
+    "recommendation": "Upgrade to version 1.14.6 or later",
+    "references": "- [CVE](https://nvd.nist.gov/vuln/detail/CVE-2021-31712)\n- [GitHub Advisory](https://github.com/advisories/GHSA-qcg2-h349-vwm3)\n",
+    "access": "public",
+    "severity": "high",
+    "cwe": "CWE-79",
+    "formatted": {
+      "created": "May 6th, 2021"
+    }
+  },
+  {
+    "id": 1668,
+    "created": "2021-05-06T15:47:15.746Z",
+    "updated": "2021-05-06T15:50:29.220Z",
+    "deleted": null,
+    "title": "Prototype Pollution",
+    "found_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "reported_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "module_name": "mixme",
+    "cves": [
+      "CVE-2021-29491"
+    ],
+    "vulnerable_versions": "<0.5.1",
+    "patched_versions": ">=0.5.1",
+    "overview": "### Impact\n\nIn affected versions of `mixme` an attacker can add or alter properties of an object via 'proto' through the mutate() and merge() functions. The polluted attribute will be directly assigned to every object in the program. This will put the availability of the program at risk causing a potential denial of service (DoS).\n\n### Patches\n\nThe problem is corrected starting with version 0.5.1.\n\n### Workarounds\nNo\n\n### References\nIssue: https://github.com/adaltas/node-mixme/issues/1\nCommit: https://github.com/adaltas/node-mixme/commit/cfd5fbfc32368bcf7e06d1c5985ea60e34cd4028\n\n### For more information\nIf you have any questions or comments about this advisory:\n* Open an issue in [example link to repo](https://github.com/adaltas/node-mixme/issues)\n* Email [me](mailto:david@adaltas.com)\n",
+    "recommendation": "Upgrade to version 0.5.1 or later",
+    "references": "- [CVE](https://nvd.nist.gov/vuln/detail/CVE-2021-29491)\n- [GitHub Advisory](https://github.com/advisories/GHSA-79jw-6wg7-r9g4)\n",
+    "access": "public",
+    "severity": "high",
+    "cwe": "CWE-913",
+    "formatted": {
+      "created": "May 6th, 2021"
+    }
+  },
+  {
+    "id": 1667,
+    "created": "2021-05-06T15:47:02.998Z",
+    "updated": "2021-05-06T15:50:51.922Z",
+    "deleted": null,
+    "title": "Cross-Site Scripting",
+    "found_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "reported_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "module_name": "highcharts",
+    "cves": [
+      "CVE-2021-29489"
+    ],
+    "vulnerable_versions": "<9.0.0",
+    "patched_versions": ">=9.0.0",
+    "overview": "### Impact\nIn `highcharts` versions 8 and earlier, the chart options structure was not systematically filtered for XSS vectors. The potential impact was that content from untrusted sources could execute code in the end user's browser. Especially when using the `useHTML` flag, HTML string options would be inserted unfiltered directly into the DOM. When `useHTML` was false, malicious code could be inserted by using various character replacement tricks or malformed HTML.\n\nIf your chart configuration comes from a trusted source like a static setup or pre-filtered HTML (or no markup at all in the configuration), you are not impacted.\n\n### Patches\nIn version 9, the whole rendering layer was refactored to use an DOMParser, an AST and tag and HTML allow-listing to make sure only safe content entered the DOM. In addition, prototype pollution was stopped.\n\n### Workarounds\nImplementers who are not able to upgrade may apply [DOMPurify](https://github.com/cure53/DOMPurify) recursively [to the options structure](https://jsfiddle.net/highcharts/zd3wcm5L/) to filter out malicious markup.\n\n### References\n* Details on the improved [Highcharts security](https://www.highcharts.com/docs/chart-concepts/security)\n* [The AST and TextBuilder refactoring](https://github.com/highcharts/highcharts/pull/14913)\n* [The fix for prototype pollution](https://github.com/highcharts/highcharts/pull/14884)\n\n### For more information\nIf you have any questions or comments about this advisory:\n* Visit our [support page](https://www.highcharts.com/blog/support/)\n* For more Email us at [security@highcharts.com](mailto:security@highcharts.com)\n",
+    "recommendation": "Upgrade to version 9.0.0 or later",
+    "references": "- [CVE](https://nvd.nist.gov/vuln/detail/CVE-2021-29489)\n- [GitHub Advisory](https://github.com/advisories/GHSA-8j65-4pcq-xq95)\n",
+    "access": "public",
+    "severity": "high",
+    "cwe": "CWE-79",
+    "formatted": {
+      "created": "May 6th, 2021"
+    }
+  },
+  {
+    "id": 1666,
+    "created": "2021-05-04T20:21:00.358Z",
+    "updated": "2021-05-04T20:21:59.864Z",
+    "deleted": null,
+    "title": "Prototype Pollution",
+    "found_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "reported_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "module_name": "merge",
+    "cves": [
+      "CVE-2020-28499"
+    ],
+    "vulnerable_versions": "<2.1.1",
+    "patched_versions": ">=2.1.1",
+    "overview": "Versions of `merge` before 2.1.1 are vulnerable to Prototype Pollution via _recursiveMerge .",
+    "recommendation": "Upgrade to version 2.1.1 or later",
+    "references": "- [CVE](https://nvd.nist.gov/vuln/detail/CVE-2020-28499)\n- [GitHub Advisory](https://github.com/advisories/GHSA-7wpw-2hjm-89gp)\n",
+    "access": "public",
+    "severity": "high",
+    "cwe": "CWE-915",
+    "formatted": {
+      "created": "May 4th, 2021"
+    }
+  },
+  {
+    "id": 1665,
+    "created": "2021-05-04T18:18:00.500Z",
+    "updated": "2021-05-04T18:28:00.912Z",
+    "deleted": null,
+    "title": "Arbitrary Code Injection",
+    "found_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "reported_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "module_name": "xmlhttprequest-ssl",
+    "cves": [
+      "CVE-2020-28502"
+    ],
+    "vulnerable_versions": "<1.6.2",
+    "patched_versions": ">=1.6.2",
+    "overview": "In `xmlhttprequest-ssl ` before 1.6.2 when requests are sent synchronously (`async=False` on `xhr.open`), malicious user input flowing into `xhr.send` could result in arbitrary code being injected and run.",
+    "recommendation": "Upgrade to version 1.6.2 or later",
+    "references": "[CVE](https://nvd.nist.gov/vuln/detail/CVE-2020-28502)\n[GitHub Advisory](https://github.com/advisories/GHSA-h4j5-c7cj-74xg)\n",
+    "access": "public",
+    "severity": "high",
+    "cwe": "CWE-94",
+    "formatted": {
+      "created": "May 4th, 2021"
+    }
+  },
+  {
+    "id": 1664,
+    "created": "2021-05-04T17:49:04.496Z",
+    "updated": "2021-05-04T18:25:00.915Z",
+    "deleted": null,
+    "title": "Arbitrary Code Execution",
+    "found_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "reported_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "module_name": "exiftool-vendored",
+    "cves": [],
+    "vulnerable_versions": "<14.3.0",
+    "patched_versions": ">=14.3.0",
+    "overview": "### Impact\n\nArbitrary code execution can occur when running `exiftool` against files with hostile metadata payloads.\n\n### Patches\n\nExifTool has already been patched in version 12.24. exiftool-vendored, which vendors ExifTool, includes this patch in v14.3.0.\n\n### Workarounds\n\nNo.",
+    "recommendation": "Upgrade to version 14.3.0 or later",
+    "references": "- [GitHub Advisory](https://github.com/advisories/GHSA-4whq-r978-2x68)\n- https://twitter.com/wcbowling/status/1385803927321415687\n",
+    "access": "public",
+    "severity": "high",
+    "cwe": "CWE-74",
+    "formatted": {
+      "created": "May 4th, 2021"
+    }
+  },
+  {
+    "id": 1663,
+    "created": "2021-05-04T04:19:25.634Z",
+    "updated": "2021-05-04T18:22:57.655Z",
+    "deleted": null,
+    "title": "Code Injection",
+    "found_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "reported_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "module_name": "oauth2-server",
+    "cves": [
+      "CVE-2017-18924"
+    ],
+    "vulnerable_versions": ">=0.0.0",
+    "patched_versions": "<0.0.0",
+    "overview": "`oauth2-server` (aka node-oauth2-server) through 3.1.1 implements OAuth 2.0 without PKCE. It does not prevent authorization code injection. This is similar to CVE-2020-7692. NOTE: the vendor states 'As RFC7636 is an extension, I think the claim in the Readme of \"RFC 6749 compliant\" is valid and not misleading and I also therefore wouldn't describe this as a \"vulnerability\" with the library per se.'\"",
+    "recommendation": "Avoid using `oauth2-server` as there is no current safe version of this module",
+    "references": "[CVE](https://nvd.nist.gov/vuln/detail/CVE-2017-18924)\n[GitHub Advisory](https://github.com/advisories/GHSA-2fw4-mgq9-39cx)\n",
+    "access": "public",
+    "severity": "high",
+    "cwe": "CWE-94",
+    "formatted": {
+      "created": "May 4th, 2021"
+    }
+  },
+  {
+    "id": 1662,
+    "created": "2021-05-04T03:47:22.289Z",
+    "updated": "2021-05-04T18:21:16.103Z",
+    "deleted": null,
+    "title": "Regular Expression Denial of Service",
+    "found_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "reported_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "module_name": "redis",
+    "cves": [
+      "CVE-2021-29469"
+    ],
+    "vulnerable_versions": ">=2.6.0 <3.1.1",
+    "patched_versions": ">=3.1.1",
+    "overview": "In `redis` before version 3.1.1, when a client is in monitoring mode, the regex begin used to detected monitor messages could cause exponential backtracking on some strings. This issue could lead to a denial of service.\n\n### Patches\nThe problem was fixed in commit [`2d11b6d`](https://github.com/NodeRedis/node-redis/commit/2d11b6dc9b9774464a91fb4b448bad8bf699629e) and was released in version `3.1.1`.",
+    "recommendation": "Upgrade to version 3.1.1 or later",
+    "references": "[CVE](https://nvd.nist.gov/vuln/detail/CVE-2021-29469)\n[GitHub Advisory](https://github.com/advisories/GHSA-35q2-47q7-3pc3)\n",
+    "access": "public",
+    "severity": "low",
+    "cwe": "CWE-400",
+    "formatted": {
+      "created": "May 4th, 2021"
+    }
+  },
+  {
+    "id": 1661,
+    "created": "2021-04-19T15:08:15.327Z",
+    "updated": "2021-04-19T15:08:15.327Z",
+    "deleted": null,
+    "title": "Observable timing discrepancy",
+    "found_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "reported_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "module_name": "jose",
+    "cves": [
+      "CVE-2021-29443"
+    ],
+    "vulnerable_versions": ">=1.0.0 <1.28.1 || >=2.0.0 <2.0.5 || >= 3.0.0 < 3.11.4",
+    "patched_versions": ">=1.28.1 <2.0.0 || >=2.0.5 <3.0.0 || >=3.11.4",
+    "overview": "### Overview\n\nAffected versions of `jose` are vulnerable to a Padding Oracle Attack due to Observable Timing Discrepancy.\n\n### Impact\n\n[AES_CBC_HMAC_SHA2 Algorithm](https://tools.ietf.org/html/rfc7518#section-5.2) (A128CBC-HS256, A192CBC-HS384, A256CBC-HS512) decryption would always execute both HMAC tag verification and CBC decryption, if either failed `JWEDecryptionFailed` would be thrown. But a possibly observable difference in timing when padding error would occur while decrypting the ciphertext makes a padding oracle and an adversary might be able to make use of that oracle to decrypt data without knowing the decryption key by issuing on average 128*b calls to the padding oracle (where b is the number of bytes in the ciphertext block).",
+    "recommendation": "### Patches\n\nAll major release versions have had a patch released which ensures the HMAC tag is verified before performing CBC decryption. The fixed versions are `^1.28.1 || ^2.0.5 || >=3.11.4`.\n\nUsers should upgrade their v1.x dependency to [`^1.28.1`](https://github.com/panva/jose/releases/tag/v1.28.1), their v2.x dependency to [`^2.0.5`](https://github.com/panva/jose/releases/tag/v2.0.5), and their v3.x dependency to [`^3.11.4`](https://github.com/panva/jose/releases/tag/v3.11.4)",
+    "references": "- [GitHub Security Advisory](https://github.com/panva/jose/security/advisories/GHSA-58f5-hfqc-jgch)\n- [CVE](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-29443)",
+    "access": "public",
+    "severity": "moderate",
+    "cwe": "CWE-208",
+    "formatted": {
+      "created": "Apr 19th, 2021"
+    }
+  },
+  {
+    "id": 1660,
+    "created": "2021-04-12T18:50:17.970Z",
+    "updated": "2021-04-12T18:51:49.225Z",
+    "deleted": null,
+    "title": "Improper Certificate Validation",
+    "found_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "reported_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "module_name": "mongodb-client-encryption",
+    "cves": [
+      "CVE-2021-20327"
+    ],
+    "vulnerable_versions": "=1.2.0",
+    "patched_versions": ">=1.2.1",
+    "overview": "Version 1.2.0 of `mongodb-client-encryption` does not perform correct validation of the KMS server’s certificate. This vulnerability in combination with a privileged network position active MITM attack could result in interception of traffic between the Node.js driver and the KMS service rendering client-side field level encryption (CSFLE) ineffective. This issue was discovered during internal testing and affects mongodb-client-encryption module version 1.2.0, which was available from 2021-Jan-29 and deprecated in the NPM Registry on 2021-Feb-04. This vulnerability does not impact driver traffic payloads with CSFLE-supported key services from applications residing inside the AWS, GCP, and Azure nework fabrics due to compensating controls in these environments. This issue does not impact driver workloads that don’t use Field Level Encryption.",
+    "recommendation": "Upgrade to version 1.2.1 or later",
+    "references": "- [CVE](https://nvd.nist.gov/vuln/detail/CVE-2021-20327)\n- [GitHub Advisory](https://github.com/advisories/GHSA-rjmf-p882-645m)",
+    "access": "public",
+    "severity": "moderate",
+    "cwe": "CWE-295",
+    "formatted": {
+      "created": "Apr 12th, 2021"
+    }
+  },
+  {
+    "id": 1659,
+    "created": "2021-04-12T18:41:09.970Z",
+    "updated": "2021-04-12T18:41:39.117Z",
+    "deleted": null,
+    "title": "Prototype Pollution",
+    "found_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "reported_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "module_name": "set-or-get",
+    "cves": [
+      "CVE-2021-25913"
+    ],
+    "vulnerable_versions": "<1.2.11",
+    "patched_versions": ">=1.2.11",
+    "overview": "Prototype pollution vulnerability in `set-or-get` version 1.0.0 through 1.2.10 allows an attacker to cause a denial of service and may lead to remote code execution.",
+    "recommendation": "Upgrade to version 1.2.11 or later",
+    "references": "- [CVE](CVE-2021-25913)\n- [WhiteSource Advisory](https://www.whitesourcesoftware.com/vulnerability-database/CVE-2021-25913)",
+    "access": "public",
+    "severity": "high",
+    "cwe": "CWE-1321",
+    "formatted": {
+      "created": "Apr 12th, 2021"
+    }
+  },
+  {
+    "id": 1658,
+    "created": "2021-03-29T21:35:07.018Z",
+    "updated": "2021-03-29T21:35:07.018Z",
+    "deleted": null,
+    "title": "netmask npm package vulnerable to octal input data",
+    "found_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "reported_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "module_name": "netmask",
+    "cves": [
+      "CVE-2021-28918"
+    ],
+    "vulnerable_versions": "<2.0.1",
+    "patched_versions": ">=2.0.1",
+    "overview": "`netmask` npm package is vulnerable to octal input data. This may lead to server-side request forgery, remote file inclusion, local file inclusion, and other vulnerabilities.",
+    "recommendation": "Upgrade to version 2.0.1 or later.",
+    "references": "- [GitHub Advisory](https://github.com/advisories/GHSA-pch5-whg9-qr2r)\n- [Researcher report](https://sick.codes/universal-netmask-npm-package-used-by-270000-projects-vulnerable-to-octal-input-data-server-side-request-forgery-remote-file-inclusion-local-file-inclusion-and-more-cve-2021-28918/)",
+    "access": "public",
+    "severity": "high",
+    "cwe": "CWE-20",
+    "formatted": {
+      "created": "Mar 29th, 2021"
+    }
+  },
+  {
+    "id": 1657,
+    "created": "2021-03-19T21:06:46.818Z",
+    "updated": "2021-03-19T21:06:46.818Z",
+    "deleted": null,
+    "title": "Prototype Pollution",
+    "found_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "reported_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "module_name": "set-in",
+    "cves": [
+      "CVE-2020-28273"
+    ],
+    "vulnerable_versions": "<2.0.1",
+    "patched_versions": ">=2.0.1",
+    "overview": "Prototype pollution vulnerability in `set-in` versions 1.0.0 through 2.0.0 allows attacker to cause a denial of service and may lead to remote code execution.",
+    "recommendation": "Upgrade to version 2.0.1 or later.",
+    "references": "- [GitHub Advisory](https://github.com/advisories/GHSA-qr4p-c9wr-phr6)\n- [CVE](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-28273)",
+    "access": "public",
+    "severity": "critical",
+    "cwe": "CWE-1321",
+    "formatted": {
+      "created": "Mar 19th, 2021"
+    }
+  },
+  {
+    "id": 1656,
+    "created": "2021-03-19T20:19:12.912Z",
+    "updated": "2021-03-19T20:19:12.912Z",
+    "deleted": null,
+    "title": "Regular Expression Denial of Service",
+    "found_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "reported_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "module_name": "schema-inspector",
+    "cves": [
+      "CVE-2021-21267"
+    ],
+    "vulnerable_versions": "<2.0.0",
+    "patched_versions": ">=2.0.0",
+    "overview": "There is a regular expression denial-of-service in `schema-inspector`.\n\n### Impact\n\nEmail address validation is vulnerable to a denial-of-service attack where some input (for example `a@0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.`) will freeze the program or web browser page executing the code. This affects any current schema-inspector users using any version to validate email addresses. Users who do not do email validation, and instead do other types of validation (like string min or max length, etc), are not affected.\n\n### Patches\n\nUsers should upgrade to version 2.0.0, which uses a regex expression that isn't vulnerable to ReDoS. The new regex expression is more limited in what it can check, so it is more flexible than the one used before. Therefore, this was a new major version instead of a new patch version to warn people upgrading that they should make sure the email validation still works for their use case. \n\n### Workarounds\n\nIf a user chooses to not upgrade, the only known workaround would be to stop using the email validation feature in the library. The user could, for example, accept the email address into their system but save it in a \"not yet validated\" state in their system until a verification email is sent to it (to determine whether the email is valid and belongs to the form submitter). Note that this is the preferred way of validating email addresses anyways.\n",
+    "recommendation": "Upgrade to version 2.0.0 or later",
+    "references": "- [GitHub Advisory](https://github.com/advisories/GHSA-f38p-c2gq-4pmr)\n- [CVE](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-21267)",
+    "access": "public",
+    "severity": "low",
+    "cwe": "CWE-400",
+    "formatted": {
+      "created": "Mar 19th, 2021"
+    }
+  },
+  {
+    "id": 1655,
+    "created": "2021-03-18T23:52:36.905Z",
+    "updated": "2021-03-18T23:52:36.905Z",
+    "deleted": null,
+    "title": "Command Injection",
+    "found_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "reported_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "module_name": "shescape",
+    "cves": [
+      "CVE-2021-21384"
+    ],
+    "vulnerable_versions": "<1.1.3",
+    "patched_versions": ">=1.1.3",
+    "overview": "### Impact\n\nAnyone using `shescape` to defend against shell injection may still be vulnerable against shell injection if the attacker manages to insert a [null character](https://en.wikipedia.org/wiki/Null_character) into the payload. For example (on Windows):\n\n```javascript\nconst cp = require(\"child_process\");\nconst shescape = require(\"shescape\");\n\nconst nullChar = String.fromCharCode(0);\nconst payload = \"foo\\\" && ls -al ${nullChar} && echo \\\"bar\";\nconsole.log(cp.execSync(`echo ${shescape.quote(payload)}`));\n// foototal 3\n// drwxr-xr-x 1 owner XXXXXX      0 Mar 13 18:44 .\n// drwxr-xr-x 1 owner XXXXXX      0 Mar 13 00:09 ..\n// drwxr-xr-x 1 owner XXXXXX      0 Mar 13 18:42 folder                                                                 \n// -rw-r--r-- 1 owner XXXXXX      0 Mar 13 18:42 file\n```\n\n### Workarounds\n\nAlternatively, null characters can be stripped out manually using e.g. `arg.replace(/\\u{0}/gu, \"\")`",
+    "recommendation": "The problem has been patched in [v1.1.3](https://github.com/ericcornelissen/shescape/releases/tag/v1.1.3) which you can upgrade to now. No further changes are required.",
+    "references": "- [GitHub Security Advisory](https://github.com/advisories/GHSA-f2rp-38vg-j3gh)\n- [CVE](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-21384)",
+    "access": "public",
+    "severity": "moderate",
+    "cwe": "CWE-88",
+    "formatted": {
+      "created": "Mar 18th, 2021"
+    }
+  },
+  {
+    "id": 1654,
+    "created": "2021-03-12T23:16:43.813Z",
+    "updated": "2021-03-29T16:07:59.314Z",
+    "deleted": null,
+    "title": "Prototype Pollution",
+    "found_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "reported_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "module_name": "y18n",
+    "cves": [
+      "CVE-2020-7774"
+    ],
+    "vulnerable_versions": "<3.2.2||=4.0.0||>=5.0.0 <5.0.5",
+    "patched_versions": ">=5.0.5||>=4.0.1 <5.0.0||>=3.2.2 <4.0.0",
+    "overview": "`y18n` before versions 3.2.2, 4.0.1, and 5.0.5 is vulnerable to prototype pollution.\n\n## POC\n\n```\nconst y18n = require('y18n')();\n \ny18n.setLocale('__proto__');\ny18n.updateLocale({polluted: true});\n\nconsole.log(polluted); // true\n```",
+    "recommendation": "Upgrade to version 3.2.2, 4.0.1, 5.0.5 or later",
+    "references": "- [CVE](https://nvd.nist.gov/vuln/detail/CVE-2020-7774)\n- [Snyk Advisory](https://snyk.io/vuln/SNYK-JS-Y18N-1021887)",
+    "access": "public",
+    "severity": "high",
+    "cwe": "CWE-1321",
+    "formatted": {
+      "created": "Mar 12th, 2021"
+    }
+  },
+  {
+    "id": 1653,
+    "created": "2021-03-12T23:08:19.818Z",
+    "updated": "2021-03-12T23:08:19.818Z",
+    "deleted": null,
+    "title": "Exposure of internal HTTP resources",
+    "found_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "reported_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "module_name": "highcharts-export-server",
+    "cves": [],
+    "vulnerable_versions": "<=2.0.30",
+    "patched_versions": ">=2.1.0",
+    "overview": "In `highcharts-export-server` before version 2.1.0 there is a vulnerability that allows exposure of internal HTTP resources.\n\n### Impact\n\nThe vulnerability allows for reading and outputting files served by other services on the internal network in which the export server is hosted. If the export server is exposed to the internet, this potentially allows a malicious user to gain read access to internal web-resources.\n\nThe impact is limited to internal services that serve content via. HTTP(S), and requires the attacker to know internal hostnames/IP addresses.\n\nThe previous versions have been marked as deprecated on NPM.\n\n### Workarounds\n\nThere are no known workarounds to the issue - an upgrade to version 2.1.0 is required.",
+    "recommendation": "Upgrade to version 2.1.0 or later.\n\n**Please note that this release is not backwards compatible out of the box. See the [changelog](https://github.com/highcharts/node-export-server/blob/master/CHANGELOG.md) for details.**\n\nAdditionally, it's also recommended to upgrade to the latest version of Highcharts to get the added input sanitation implemented in version 9.0 and later. ",
+    "references": "- [GitHub Security Advisory](https://github.com/advisories/GHSA-hfwx-c7q6-g54c)",
+    "access": "public",
+    "severity": "high",
+    "cwe": "CWE-552",
+    "formatted": {
+      "created": "Mar 12th, 2021"
+    }
+  },
+  {
+    "id": 1652,
+    "created": "2021-03-12T23:03:36.529Z",
+    "updated": "2021-03-12T23:03:36.529Z",
+    "deleted": null,
+    "title": "Improper Neutralization of Special Elements used in a Command",
+    "found_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "reported_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "module_name": "madge",
+    "cves": [
+      "CVE-2021-23352"
+    ],
+    "vulnerable_versions": "<4.0.1",
+    "patched_versions": ">=4.0.1",
+    "overview": "In `madge` before version 4.0.1 it is possible to specify a custom Graphviz path via the graphVizPath option parameter which when the .image(), .svg() or .dot() functions are called, is executed by the childprocess.exec function.",
+    "recommendation": "Upgrade to version 4.0.1 or later",
+    "references": "- [GitHub Advisory](https://github.com/advisories/GHSA-753c-phhg-cj29)\n- [CVE](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-23352)",
+    "access": "public",
+    "severity": "high",
+    "cwe": "CWE-77",
+    "formatted": {
+      "created": "Mar 12th, 2021"
+    }
+  },
+  {
+    "id": 1651,
+    "created": "2021-03-12T22:58:56.714Z",
+    "updated": "2021-03-12T22:59:36.198Z",
+    "deleted": null,
+    "title": "Prototype Poisoning",
+    "found_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "reported_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "module_name": "msgpack5",
+    "cves": [
+      "CVE-2021-21368"
+    ],
+    "vulnerable_versions": "<3.6.1||>=4.0.0 <4.5.1||>=5.0.0 <5.2.1",
+    "patched_versions": ">=5.2.1||>=4.5.1 < 5.0.0||>=3.6.1 <4.0.0",
+    "overview": "### Impact\n\nWhen `msgpack5` decodes a map containing a  key `\"__proto__\"`, it assigns the decoded value to `__proto__`. As you  are no doubt aware, `Object.prototype.__proto__` is an accessor  property for the receiver's prototype. If the value corresponding to the key `__proto__` decodes to an object or `null`, `msgpack5` sets  the decoded object's prototype to that value. \n\nAn attacker who can submit crafted MessagePack data to a service can use this to produce values that appear to be of other types; may have unexpected prototype properties and methods (for example `length`, numeric properties, and `push` et al if `__proto__`'s value decodes to an `Array`); and/or may throw unexpected exceptions when used (for example if the `__proto__` value decodes to a `Map` or `Date`). Other unexpected behavior might be produced for other types. \n\nThere is no effect on the global prototype.\n\nAn example: \n\n```js \nconst msgpack5 = require('msgpack5')(); \n\nconst payload = {}; \nObject.defineProperty(payload, '__proto__', { \nvalue: new Map().set(1, 2), \nenumerable: true \n}); \n\nconst encoded = msgpack5.encode(payload); \nconsole.log(encoded); // <Buffer 81 a9 5f 5f 70 72 6f 74 6f 5f 5f 81 01 02> \n\nconst decoded = msgpack5.decode(encoded); \n\n// decoded's prototype has been overwritten \nconsole.log(Object.getPrototypeOf(decoded)); // Map(1) { 1 => 2 } \nconsole.log(decoded.get); // [Function: get] \n\n// decoded appears to most common typechecks to be a Map \nconsole.log(decoded instanceof Map); // true \nconsole.log(decoded.toString()); // [object Map] \nconsole.log(Object.prototype.toString.call(decoded)); // [object Map] \nconsole.log(decoded.constructor.name); // Map \nconsole.log(Object.getPrototypeOf(decoded).constructor.name); // Map \n\n// decoded is not, however, a Map \nconsole.log(Object.getPrototypeOf(decoded) === Map.prototype); // false \n\n// using decoded as though it were a Map throws \ntry { \ndecoded.get(1); \n} catch (error) { \nconsole.log(error); // TypeError: Method Map.prototype.get called \n// on incompatible receiver #<Map> \n} \ntry { \ndecoded.size; \n} catch (error) { \nconsole.log(error); // TypeError: Method get Map.prototype.size \n// called on incompatible receiver #<Map> \n} \n\n// re-encoding the decoded value throws \ntry { \nmsgpack5.encode(decoded); \n} catch (error) { \nconsole.log(error); // TypeError: Method Map.prototype.entries \n// called on incompatible receiver #<Map> \n} \n``` \n\nThis \"prototype poisoning\" is sort of a very limited inversion of a \nprototype pollution attack. Only the decoded value's prototype is \naffected, and it can only be set to `msgpack5` values (though if the \nvictim makes use of custom codecs, anything could be a `msgpack5` \nvalue). We have not found a way to escalate this to true prototype \npollution (absent other bugs in the consumer's code). \n\n### Workarounds\n\nAlways validate incoming data after parsing before doing any processing.",
+    "recommendation": "Upgrade to version 5.2.1, v4.5.1,  3.6.1  or later\n",
+    "references": "- [GitHub Security Advisory](https://github.com/advisories/GHSA-gmjw-49p4-pcfm)\n- [CVE](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-21368)",
+    "access": "public",
+    "severity": "moderate",
+    "cwe": "CWE-915",
+    "formatted": {
+      "created": "Mar 12th, 2021"
+    }
+  },
+  {
+    "id": 1650,
+    "created": "2021-03-12T22:42:38.486Z",
+    "updated": "2021-03-12T22:42:38.486Z",
+    "deleted": null,
+    "title": "Misinterpretation of malicious XML input",
+    "found_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "reported_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "module_name": "xmldom",
+    "cves": [
+      "CVE-2021-21366"
+    ],
+    "vulnerable_versions": "<0.5.0",
+    "patched_versions": ">=0.5.0",
+    "overview": "### Impact\n\n`xmldom` versions 0.4.0 and older do not correctly preserve [system identifiers](https://www.w3.org/TR/2008/REC-xml-20081126/#d0e4313), [FPIs](https://en.wikipedia.org/wiki/Formal_Public_Identifier) or [namespaces](https://www.w3.org/TR/xml-names11/) when repeatedly parsing and serializing maliciously crafted documents.\n\nThis may lead to unexpected syntactic changes during XML processing in some downstream applications.\n\n### Workarounds\n\nDownstream applications can validate the input and reject the maliciously crafted documents.",
+    "recommendation": "Update to 0.5.0 or later",
+    "references": "- [GitHub Security Advisory](https://github.com/advisories/GHSA-h6q6-9hqw-rwfv)\n- [CVE](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-21366)\n- [Similar advisory for Go standard library](https://mattermost.com/blog/coordinated-disclosure-go-xml-vulnerabilities/)",
+    "access": "public",
+    "severity": "low",
+    "cwe": "CWE-115",
+    "formatted": {
+      "created": "Mar 12th, 2021"
+    }
+  },
+  {
+    "id": 1649,
+    "created": "2021-03-09T17:35:28.122Z",
+    "updated": "2021-03-09T17:35:28.122Z",
+    "deleted": null,
+    "title": "Prototype Pollution",
+    "found_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "reported_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "module_name": "mquery",
+    "cves": [
+      "CVE-2020-35149"
+    ],
+    "vulnerable_versions": "<3.2.3",
+    "patched_versions": ">=3.2.3",
+    "overview": "In `mquery` before version 3.2.3 there is a prototype pollution vulnerability because a special property (e.g., __proto__) can be copied during a merge or clone operation.",
+    "recommendation": "Upgrade to version 3.2.3 or later",
+    "references": "- [CVE](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-35149)\n- [GitHub Advisory](https://github.com/advisories/GHSA-45q2-34rf-mr94)",
+    "access": "public",
+    "severity": "moderate",
+    "cwe": "CWE-1321",
+    "formatted": {
+      "created": "Mar 9th, 2021"
+    }
+  },
+  {
+    "id": 1648,
+    "created": "2021-03-08T16:08:52.414Z",
+    "updated": "2021-03-08T16:08:52.414Z",
+    "deleted": null,
+    "title": "Use of a Broken or Risky Cryptographic Algorithm",
+    "found_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "reported_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "module_name": "elliptic",
+    "cves": [
+      "CVE-2020-28498"
+    ],
+    "vulnerable_versions": "<6.5.4",
+    "patched_versions": ">=6.5.4",
+    "overview": "`elliptic` before version 6.5.4 is vulnerable to Cryptographic Issues via the secp256k1 implementation in `elliptic/ec/key.js`. There is no check to confirm that the public key point passed into the derive function actually exists on the secp256k1 curve. This results in the potential for the private key used in this implementation to be revealed after a number of ECDH operations are performed.",
+    "recommendation": "Upgrade to version 6.5.4 or later",
+    "references": "- [Snyk Advisory](https://snyk.io/vuln/SNYK-JS-ELLIPTIC-1064899)\n- [GitHub Advisory](https://github.com/advisories/GHSA-r9p9-mrjm-926w)\n- [CVE](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-28498)",
+    "access": "public",
+    "severity": "moderate",
+    "cwe": "CWE-327",
+    "formatted": {
+      "created": "Mar 8th, 2021"
+    }
+  },
+  {
+    "id": 1647,
+    "created": "2021-03-08T15:57:38.007Z",
+    "updated": "2021-03-08T15:57:38.007Z",
+    "deleted": null,
+    "title": "Improper Authentication",
+    "found_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "reported_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "module_name": "botframework-connector",
+    "cves": [
+      "CVE-2021-1725"
+    ],
+    "vulnerable_versions": ">=4.7.0 < 4.7.3||=4.8.0||>=4.9.0 <4.9.4||>=4.10.0 <4.10.3",
+    "patched_versions": ">=4.7.3 <4.8.0||>=4.8.1 <4.9.0||>=4.9.4 <4.10.0||>=4.10.3",
+    "overview": "In affected versions of `botframework-connector`, a maliciously crafted claim may be incorrectly authenticated by the bot. Impacts bots that are not configured to be used as a Skill. This vulnerability requires an attacker to have internal knowledge of the bot.",
+    "recommendation": "Upgrade to fix version 4.7.3, 4.8.1, 4.9.4, 4.10.3, or later.",
+    "references": "- [GitHub Advisory](https://github.com/advisories/GHSA-fvcj-hvfw-7f2v)\n- [CVE](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-1725)",
+    "access": "public",
+    "severity": "moderate",
+    "cwe": "CWE-287",
+    "formatted": {
+      "created": "Mar 8th, 2021"
+    }
+  },
+  {
+    "id": 1646,
+    "created": "2021-03-03T02:27:35.857Z",
+    "updated": "2021-03-03T02:27:35.857Z",
+    "deleted": null,
+    "title": "Sandbox Breakout",
+    "found_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "reported_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "module_name": "matrix-react-sdk",
+    "cves": [
+      "CVE-2021-21320"
+    ],
+    "vulnerable_versions": "<3.15.0",
+    "patched_versions": ">=3.15.0",
+    "overview": "In `matrix-react-sdk` before version 3.15.0 the user content sandbox can be abused to trick users into opening unexpected documents. The content is opened with a `blob` origin that cannot access Matrix user data, so messages and secrets are not at risk.",
+    "recommendation": "Upgrade to version 3.15.0 or later.",
+    "references": "- [GitHub Advisory](https://github.com/advisories/GHSA-52mq-6jcv-j79x)\n- [CVE](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-21320)",
+    "access": "public",
+    "severity": "low",
+    "cwe": "CWE-345",
+    "formatted": {
+      "created": "Mar 3rd, 2021"
+    }
+  },
+  {
+    "id": 1645,
+    "created": "2021-03-03T02:22:40.366Z",
+    "updated": "2021-03-03T02:22:40.366Z",
+    "deleted": null,
+    "title": "Prefix escape",
+    "found_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "reported_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "module_name": "fastify-http-proxy",
+    "cves": [
+      "CVE-2021-21322"
+    ],
+    "vulnerable_versions": "<4.3.1",
+    "patched_versions": ">=4.3.1",
+    "overview": "In `fastify-http-proxy` before version 4.3.1, by crafting a specific URL, it is possible to escape the prefix of the proxied backend service.\nIf the base url of the proxied server is /pub/, a user expect that accessing /priv on the target service would not be possible. Unfortunately, it is.",
+    "recommendation": "Upgrade to version 4.3.1 or later.",
+    "references": "- [GitHub Advisory](https://github.com/advisories/GHSA-c4qr-gmr9-v23w)\n- [CVE](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-21322)",
+    "access": "public",
+    "severity": "info",
+    "cwe": "CWE-20",
+    "formatted": {
+      "created": "Mar 3rd, 2021"
+    }
+  },
+  {
+    "id": 1644,
+    "created": "2021-03-03T02:16:22.974Z",
+    "updated": "2021-03-03T02:17:24.599Z",
+    "deleted": null,
+    "title": "Remote Code Execution",
+    "found_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "reported_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "module_name": "pug-code-gen",
+    "cves": [
+      "CVE-2021-21353"
+    ],
+    "vulnerable_versions": "<2.0.3||>=3.0.0 <3.0.2",
+    "patched_versions": ">=2.0.3 <3.0.0||>=3.0.2",
+    "overview": "### Impact\n\nIn affected versions of `pug` and `pug-code-gen`, if a remote attacker was able to control the `pretty` option of the pug compiler, e.g. if you spread a user provided object such as the query parameters of a request into the pug template inputs, it was possible for them to achieve remote code execution on the node.js backend.\n\n### Patches\n\nUpgrade to `pug@3.0.1` or `pug-code-gen@3.0.2` or `pug-code-gen@2.0.3`, which correctly sanitise the parameter.\n\n### Workarounds\n\nIf there is no way for un-trusted input to be passed to pug as the `pretty` option, e.g. if you compile templates in advance before applying user input to them, you do not need to upgrade.",
+    "recommendation": "Upgrade `pug-code-gen` to version 2.0.3 or 3.0.2.",
+    "references": "- [GitHub Advisory](https://github.com/advisories/GHSA-p493-635q-r6gr)\n- [CVE](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-21353)\n- [Similar advisory for `pug`](https://www.npmjs.com/advisories/1643)",
+    "access": "public",
+    "severity": "high",
+    "cwe": "CWE-74",
+    "formatted": {
+      "created": "Mar 3rd, 2021"
+    }
+  },
+  {
+    "id": 1643,
+    "created": "2021-03-03T02:09:54.865Z",
+    "updated": "2021-03-03T02:17:05.831Z",
+    "deleted": null,
+    "title": "Remote Code Execution",
+    "found_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "reported_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "module_name": "pug",
+    "cves": [
+      "CVE-2021-21353"
+    ],
+    "vulnerable_versions": "<3.0.1",
+    "patched_versions": ">=3.0.1",
+    "overview": "### Impact\n\nIn affected versions of `pug` and `pug-code-gen`, if a remote attacker was able to control the `pretty` option of the pug compiler, e.g. if you spread a user provided object such as the query parameters of a request into the pug template inputs, it was possible for them to achieve remote code execution on the node.js backend.\n\n### Patches\n\nUpgrade to `pug@3.0.1` or `pug-code-gen@3.0.2` or `pug-code-gen@2.0.3`, which correctly sanitise the parameter.\n\n### Workarounds\n\nIf there is no way for un-trusted input to be passed to pug as the `pretty` option, e.g. if you compile templates in advance before applying user input to them, you do not need to upgrade.",
+    "recommendation": "Upgrade `pug` to version 3.0.1",
+    "references": "- [GitHub Advisory](https://github.com/advisories/GHSA-p493-635q-r6gr)\n- [CVE](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-21353)\n- [Similar advisory for `pug-code-gen`](https://www.npmjs.com/advisories/1644)",
+    "access": "public",
+    "severity": "high",
+    "cwe": "CWE-74",
+    "formatted": {
+      "created": "Mar 3rd, 2021"
+    }
+  },
+  {
+    "id": 1642,
+    "created": "2021-03-03T01:55:12.970Z",
+    "updated": "2021-03-03T01:55:12.970Z",
+    "deleted": null,
+    "title": "Prefix escape",
+    "found_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "reported_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "module_name": "fastify-reply-from",
+    "cves": [
+      "CVE-2021-21321"
+    ],
+    "vulnerable_versions": "<4.0.2",
+    "patched_versions": ">=4.0.2",
+    "overview": "In `fastify-reply-from` before version 4.0.2, by crafting a specific URL, it is possible to escape the prefix of the proxied backend service.\nIf the base url of the proxied server is /pub/, a user expect that accessing /priv on the target service would not be possible. Unfortunately, it is.",
+    "recommendation": "Upgrade to version 4.0.2",
+    "references": "- [GitHub Advisory](https://github.com/advisories/GHSA-qmw8-3v4g-gwj4)\n- [CVE](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-21321)",
+    "access": "public",
+    "severity": "critical",
+    "cwe": "CWE-20",
+    "formatted": {
+      "created": "Mar 3rd, 2021"
+    }
+  },
+  {
+    "id": 1641,
+    "created": "2021-03-01T20:54:05.953Z",
+    "updated": "2021-03-01T20:56:29.306Z",
+    "deleted": null,
+    "title": "Regular Expression Denial of Service",
+    "found_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "reported_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "module_name": "@progfay/scrapbox-parser",
+    "cves": [
+      "CVE-2021-27405"
+    ],
+    "vulnerable_versions": "<6.0.3||>=7.0.0 <7.0.2",
+    "patched_versions": ">=6.0.3 <7.0.0||>=7.0.2",
+    "overview": "### Impact\n\n`@progfay/scrapbox-parser` before 6.0.3 and 7.0.2 are vulnerable to Regular Expression Denial of Service (ReDoS) in DecorationNode, StrongNode and ExternalLinkNode.\nAn attacker may be able to craft text which causes the application to consume an excessive amount of CPU.",
+    "recommendation": "Upgrade to version 6.0.3, or 7.0.2, or later",
+    "references": "- [Snyk Advisory](https://snyk.io/vuln/SNYK-JS-PROGFAYSCRAPBOXPARSER-1076803)\n- [GitHub Advisory](https://github.com/advisories/GHSA-9fhw-r42p-5c7r)\n- [CVE](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-27405)",
+    "access": "public",
+    "severity": "moderate",
+    "cwe": "CWE-400",
+    "formatted": {
+      "created": "Mar 1st, 2021"
+    }
+  },
+  {
+    "id": 1640,
+    "created": "2021-03-01T20:43:24.834Z",
+    "updated": "2021-03-01T20:43:24.834Z",
+    "deleted": null,
+    "title": "Hostname spoofing via backslashes in URL",
+    "found_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "reported_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "module_name": "urijs",
+    "cves": [
+      "CVE-2021-27516"
+    ],
+    "vulnerable_versions": "<1.19.6",
+    "patched_versions": ">=1.19.6",
+    "overview": "### Impact\n\n`urijs` before version 1.19.6 is affected by hostname spoofing issue.\n\nIf using `urijs` to determine a URL's hostname, the hostname can be spoofed by using a backslash (`\\`) character as part of the scheme delimiter, e.g. `scheme:/\\hostname`. If the hostname is used in security decisions, the decision may be incorrect.\n\nDepending on library usage and attacker intent, impacts may include allow/block list bypasses, SSRF attacks, open redirects, or other undesired behavior.\n\nExample URL: `https:/\\expected-example.com/path`\nEscaped string: `https:/\\\\expected-example.com/path` (JavaScript strings must escape backslash)\n\nAffected versions incorrectly return no hostname. Patched versions correctly return `expected-example.com`. Patched versions match the behavior of other parsers which implement the [WHATWG URL specification](https://url.spec.whatwg.org/), including web browsers and [Node's built-in URL class](https://nodejs.org/api/url.html).",
+    "recommendation": "Upgrade to version 1.19.6",
+    "references": "- [GitHub Advisory](https://github.com/advisories/GHSA-p6j9-7xhc-rhwp)\n- [CVE](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-27516)\n- [Previous similar issue in urijs](https://www.npmjs.com/advisories/1595)",
+    "access": "public",
+    "severity": "moderate",
+    "cwe": "CWE-20",
+    "formatted": {
+      "created": "Mar 1st, 2021"
+    }
+  },
+  {
+    "id": 1639,
+    "created": "2021-03-01T20:02:32.362Z",
+    "updated": "2021-03-01T20:02:32.362Z",
+    "deleted": null,
+    "title": "Regular Expression Denial of Service",
+    "found_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "reported_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "module_name": "three",
+    "cves": [
+      "CVE-2020-28496"
+    ],
+    "vulnerable_versions": "<0.125.0",
+    "patched_versions": ">=0.125.0",
+    "overview": "`three` before version 0.125.0 is vulnerable to Regular Expression Denial of Service (ReDoS). This can happen when handling rgb or hsl colors.\n\n## POC\n\n```\nvar three = require('three')\n\nfunction build_blank (n) {\n var ret = \"rgb(\"\n for (var i = 0; i < n; i++) {\n  ret += \" \"\n }\n\n return ret + \"\";\n}\n\nvar Color = three.Color\n\nvar time = Date.now();\nnew Color(build_blank(50000))\nvar time_cost = Date.now() - time;\nconsole.log(time_cost+\" ms\")\n```\n\n\n",
+    "recommendation": "Upgrade to version 0.125.0 or later",
+    "references": "- [Snyk Advisory](https://snyk.io/vuln/SNYK-JS-THREE-1064931)\n- [GitHub Advisory](https://github.com/advisories/GHSA-fq6p-x6j3-cmmq)\n- [CVE](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-28496)",
+    "access": "public",
+    "severity": "high",
+    "cwe": "CWE-400",
+    "formatted": {
+      "created": "Mar 1st, 2021"
+    }
+  },
+  {
+    "id": 1638,
+    "created": "2021-03-01T19:55:37.985Z",
+    "updated": "2021-03-01T19:55:37.985Z",
+    "deleted": null,
+    "title": "Regular Expression Denial of Service",
+    "found_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "reported_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "module_name": "prismjs",
+    "cves": [
+      "CVE-2021-23341"
+    ],
+    "vulnerable_versions": "<1.23.0",
+    "patched_versions": ">=1.23.0",
+    "overview": "`prismjs` versions before 1.23.0 are vulnerable to Regular Expression Denial of Service (ReDoS) via the prism-asciidoc, prism-rest, prism-tap and prism-eiffel components.\n\n",
+    "recommendation": "Upgrade to version 1.23.0 or later",
+    "references": "- [Snyk Advisory](https://snyk.io/vuln/SNYK-JS-PRISMJS-1076581)\n- [GitHub Advisory](https://github.com/advisories/GHSA-h4hr-7fg3-h35w)\n- [CVE](https://nvd.nist.gov/vuln/detail/CVE-2021-23341)",
+    "access": "public",
+    "severity": "moderate",
+    "cwe": "CWE-400",
+    "formatted": {
+      "created": "Mar 1st, 2021"
+    }
+  },
+  {
+    "id": 1637,
+    "created": "2021-03-01T19:50:21.187Z",
+    "updated": "2021-03-01T19:50:21.187Z",
+    "deleted": null,
+    "title": "Cross-Site Scripting (XSS)",
+    "found_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "reported_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "module_name": "docsify",
+    "cves": [
+      "CVE-2021-23342"
+    ],
+    "vulnerable_versions": "< 4.12.0",
+    "patched_versions": ">= 4.12.0",
+    "overview": "In `docsify` before version 4.12.0 it is possible to bypass the remediation done by `CVE-2020-7680` and execute malicious JavaScript through the following methods:\n\n- When parsing HTML from remote URLs, the HTML code on the main page is sanitized, but this sanitization is not taking place in the sidebar. \n- The isURL external check can be bypassed by inserting more “////” characters.\n",
+    "recommendation": "Upgrade to version 4.12.0 or later",
+    "references": "- [Snyk Advisory](https://snyk.io/vuln/SNYK-JS-DOCSIFY-1066017)\n- [GitHub Advisory](https://github.com/advisories/GHSA-2mm9-c2fx-c7m4)\n- [CVE](CVE-2021-23342)",
+    "access": "public",
+    "severity": "high",
+    "cwe": "CWE-79",
+    "formatted": {
+      "created": "Mar 1st, 2021"
+    }
+  },
+  {
+    "id": 1636,
+    "created": "2021-03-01T19:42:28.964Z",
+    "updated": "2021-03-01T19:42:28.964Z",
+    "deleted": null,
+    "title": "Server-Side Request Forgery",
+    "found_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "reported_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "module_name": "rendertron",
+    "cves": [
+      "CVE-2020-8902"
+    ],
+    "vulnerable_versions": "<3.0.0",
+    "patched_versions": ">=3.0.0",
+    "overview": "`rendertron` prior to version 3.0.0 is susceptible to a Server-Side Request Forgery (SSRF) attack. An attacker can use a specially crafted webpage to force a rendertron headless chrome process to render internal sites it has access to, and display it as a screenshot. ",
+    "recommendation": "Upgrade to version 3.0.0 or later.",
+    "references": "- [GitHub Advisory](https://github.com/advisories/GHSA-xr9h-9m79-x29g)\n- [CVE](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-8902)\n",
+    "access": "public",
+    "severity": "moderate",
+    "cwe": "CWE-918",
+    "formatted": {
+      "created": "Mar 1st, 2021"
+    }
+  },
+  {
+    "id": 1635,
+    "created": "2021-02-26T16:26:58.202Z",
+    "updated": "2021-02-26T16:26:58.202Z",
+    "deleted": null,
+    "title": "Prototype Pollution",
+    "found_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "reported_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "module_name": "@node-red/runtime",
+    "cves": [
+      "CVE-2021-21297"
+    ],
+    "vulnerable_versions": "<1.2.8",
+    "patched_versions": ">=1.2.8",
+    "overview": "### Impact\n\nNode-RED 1.2.7 and earlier contains a Prototype Pollution vulnerability in the admin API. A badly formed request can modify the prototype of the default JavaScript Object with the potential to affect the default behaviour of the Node-RED runtime.\n\n### Workarounds\n\nA workaround is to ensure only authorised users are able to access the editor url.",
+    "recommendation": "Upgrade to version 1.2.8 or later",
+    "references": "- [GitHub Advisory](https://github.com/node-red/node-red/security/advisories/GHSA-xp9c-82x8-7f67)",
+    "access": "public",
+    "severity": "high",
+    "cwe": "CWE-1321",
+    "formatted": {
+      "created": "Feb 26th, 2021"
+    }
+  },
+  {
+    "id": 1634,
+    "created": "2021-02-25T17:07:05.010Z",
+    "updated": "2021-02-25T17:07:05.010Z",
+    "deleted": null,
+    "title": "Prototype Override",
+    "found_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "reported_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "module_name": "querystringify",
+    "cves": [],
+    "vulnerable_versions": "<=1.0.0",
+    "patched_versions": ">=2.0.0",
+    "overview": "Affected versions of `querystringify` are vulnerable to Prototype Override. If a malicious string is inserted in the query string, it will set the tostring method of the object to the true boolean.",
+    "recommendation": "Upgrade to version 2.0.0 or later",
+    "references": "- [WhiteSource Advisory](https://www.whitesourcesoftware.com/vulnerability-database/WS-2018-0588)\n- [Snyk Advisory](https://snyk.io/vuln/npm:querystringify:20180419)\n- [GitHub Advisory](https://github.com/advisories/GHSA-hxcm-v35h-mg2x)",
+    "access": "public",
+    "severity": "high",
+    "cwe": "CWE-1321",
+    "formatted": {
+      "created": "Feb 25th, 2021"
+    }
+  },
+  {
+    "id": 1633,
+    "created": "2021-02-25T16:39:03.253Z",
+    "updated": "2021-02-25T16:39:03.253Z",
+    "deleted": null,
+    "title": "Regular Expression Denial of Service",
+    "found_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "reported_by": {
+      "link": "",
+      "name": "Anonymous",
+      "email": ""
+    },
+    "module_name": "nwmatcher",
+    "cves": [],
+    "vulnerable_versions": "<1.4.4",
+    "patched_versions": ">=1.4.4",
+    "overview": "Affected versions of `nwmatcher` are vulnerable to Regular Expression Denial of Service (ReDoS). This can cause an impact of about 10 seconds matching time for data 2k characters long.",
+    "recommendation": "Upgrade to version 1.4.4 or later",
+    "references": "- [WhiteSource Advisory](https://www.whitesourcesoftware.com/vulnerability-database/WS-2018-0592)\n- [Snyk Advisory](https://snyk.io/vuln/npm:nwmatcher:20180305)\n- [GitHub Advisory](https://github.com/advisories/GHSA-6394-6h9h-cfjg)",
+    "access": "public",
+    "severity": "moderate",
+    "cwe": "CWE-400",
+    "formatted": {
+      "created": "Feb 25th, 2021"
+    }
+  }
+]
