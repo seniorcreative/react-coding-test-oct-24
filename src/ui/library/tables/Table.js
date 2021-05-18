@@ -6,7 +6,7 @@ const propTypes = {
 };
 
 export const Table = ({ children }) => (
-  <table className="table-auto w-full">{children}</table>
+  <table className="my-2 table-auto w-full">{children}</table>
 );
 
 Table.propTypes = propTypes;
