@@ -49,7 +49,9 @@ export const Vulnerabilities = () => {
                     Low
                   </Tag>
                 </Td>
-                <Td textAlign="center">16th May 2021</Td>
+                <Td textAlign="center">
+                  <p className="text-gray-600">16th May 2021</p>
+                </Td>
                 <Td textAlign="center">
                   <Tag theme="info" title="Status: Patched">
                     Patched
@@ -67,7 +69,9 @@ export const Vulnerabilities = () => {
                     High
                   </Tag>
                 </Td>
-                <Td textAlign="center">15th May 2021</Td>
+                <Td textAlign="center">
+                  <p className="text-gray-600">15th May 2021</p>
+                </Td>
                 <Td textAlign="center">
                   <Tag title="Status: Unpatched">Unpatched</Tag>
                 </Td>
@@ -83,7 +87,9 @@ export const Vulnerabilities = () => {
                     Info
                   </Tag>
                 </Td>
-                <Td textAlign="center">15th May 2021</Td>
+                <Td textAlign="center">
+                  <p className="text-gray-600">15th May 2021</p>
+                </Td>
                 <Td textAlign="center">
                   <Tag theme="info" title="Status: Patched">
                     Patched
@@ -103,7 +109,9 @@ export const Vulnerabilities = () => {
                     Moderate
                   </Tag>
                 </Td>
-                <Td textAlign="center">14th May 2021</Td>
+                <Td textAlign="center">
+                  <p className="text-gray-600">14th May 2021</p>
+                </Td>
                 <Td textAlign="center">
                   <Tag theme="info" title="Status: Patched">
                     Patched
@@ -121,7 +129,9 @@ export const Vulnerabilities = () => {
                     Critical
                   </Tag>
                 </Td>
-                <Td textAlign="center">13th May 2021</Td>
+                <Td textAlign="center">
+                  <p className="text-gray-600">13th May 2021</p>
+                </Td>
                 <Td textAlign="center">
                   <Tag theme="info" title="Status: Patched">
                     Patched
