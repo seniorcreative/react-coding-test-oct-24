@@ -6,7 +6,7 @@ const propTypes = {
 };
 
 export const Fieldset = ({ children }) => (
-  <fieldset className="mt-2 mb-6">{children}</fieldset>
+  <fieldset class="mt-2 mb-6">{children}</fieldset>
 );
 
 Fieldset.propTypes = propTypes;
