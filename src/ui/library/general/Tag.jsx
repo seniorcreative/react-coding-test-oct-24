@@ -5,9 +5,10 @@ import classNames from "classnames";
 const propTypes = {
   children: PropTypes.node,
   theme: PropTypes.oneOf(["success", "info", "warning", "danger"]),
+  title: PropTypes.string,
 };
 
-export const Tag = ({ children, theme }) => {
+export const Tag = ({ children, theme, title }) => {
   let themeClassNames;
   switch (theme) {
     case "success":
@@ -49,6 +50,7 @@ export const Tag = ({ children, theme }) => {
         "text-opacity-90",
         themeClassNames
       )}
+      title={title}
     >
       {children}
     </div>
