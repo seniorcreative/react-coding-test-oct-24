@@ -1,16 +1,16 @@
 import React from "react";
 
-import { Button, CheckLabel, Fieldset, HeadingThree, Label } from "ui/library";
+import { Button, CheckLabel, Fieldset, HeadingTwo, Label } from "ui/library";
 
 export const Filters = () => {
   return (
     <>
-      <HeadingThree>Filters</HeadingThree>
+      <HeadingTwo>Filters</HeadingTwo>
 
       <Fieldset className="mt-2 mb-6">
         <Label for="search">Search</Label>
 
-        <div class="flex items-center">
+        <div class="flex items-center mb-2">
           <input
             className="block border-1 border-gray-300 form-input mr-2 placeholder-gray-400 px-3 py-2 rounded-lg w-full"
             type="text"
@@ -19,6 +19,28 @@ export const Filters = () => {
           />
           <Button>&rarr;</Button>
         </div>
+      </Fieldset>
+
+      <Fieldset className="mt-2 mb-6">
+        <Label>Order by</Label>
+
+        <CheckLabel>
+          <input
+            type="radio"
+            name="order-by"
+            class="form-radio mr-2 rounded-full text-blue-500"
+          />
+          Newest first
+        </CheckLabel>
+
+        <CheckLabel>
+          <input
+            type="radio"
+            name="order-by"
+            class="form-radio mr-2 rounded-full text-blue-500"
+          />
+          Oldest first
+        </CheckLabel>
       </Fieldset>
 
       <Fieldset className="mt-2 mb-6">

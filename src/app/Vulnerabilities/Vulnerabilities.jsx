@@ -3,7 +3,7 @@ import React from "react";
 import { Filters } from "./Filters";
 
 import {
-  HeadingTwo,
+  HeadingOne,
   Small,
   Tag,
   Table,
@@ -17,14 +17,16 @@ import {
 export const Vulnerabilities = () => {
   return (
     <div className="md:flex md:flex-row-reverse">
-      <div className="flex-shrink-0 md:flex-auto mb-4 md:mb-0 md:ml-3 p-4 md:p-6">
+      <div className="flex-shrink-0 md:flex-auto md:max-w-xs mb-4 md:mb-0 md:ml-3 p-4 md:p-6">
         <Filters />
       </div>
 
       <div className="flex-1 md:flex-auto">
         <div className="bg-white border border-gray-300 mx-auto p-4 md:p-6 rounded-lg shadow-sm">
-          <HeadingTwo>Security advisories</HeadingTwo>
-          <Small>Showing 15 items</Small>
+          <div className="mb-4">
+            <HeadingOne>Security advisories</HeadingOne>
+            <Small className="block">Showing 15 items</Small>
+          </div>
 
           <Table>
             <Thead>
@@ -42,11 +44,15 @@ export const Vulnerabilities = () => {
                   <p className="font-bold mb-1 text-gray-700">
                     Cross-site scripting in jspdf
                   </p>
-                  <Tag theme="success">Low</Tag>
+                  <Tag theme="success" title="Severity: Low">
+                    Low
+                  </Tag>
                 </Td>
                 <Td textAlign="center">16th May 2021</Td>
                 <Td textAlign="center">
-                  <Tag theme="info">Patched</Tag>
+                  <Tag theme="info" title="Status: Patched">
+                    Patched
+                  </Tag>
                 </Td>
               </Tr>
 
@@ -56,11 +62,13 @@ export const Vulnerabilities = () => {
                   <p className="font-bold mb-1 text-gray-700">
                     Regular Expression Denial of Service
                   </p>
-                  <Tag theme="warning">High</Tag>
+                  <Tag theme="warning" title="Severity: High">
+                    High
+                  </Tag>
                 </Td>
                 <Td textAlign="center">15th May 2021</Td>
                 <Td textAlign="center">
-                  <Tag>Unpatched</Tag>
+                  <Tag title="Status: Unpatched">Unpatched</Tag>
                 </Td>
               </Tr>
 
@@ -70,11 +78,15 @@ export const Vulnerabilities = () => {
                     fastify-http-proxy
                   </Small>
                   <p className="font-bold mb-1 text-gray-700">Prefix escape</p>
-                  <Tag theme="info">Info</Tag>
+                  <Tag theme="info" title="Severity: Info">
+                    Info
+                  </Tag>
                 </Td>
                 <Td textAlign="center">15th May 2021</Td>
                 <Td textAlign="center">
-                  <Tag theme="info">Patched</Tag>
+                  <Tag theme="info" title="Status: Patched">
+                    Patched
+                  </Tag>
                 </Td>
               </Tr>
 
@@ -84,11 +96,15 @@ export const Vulnerabilities = () => {
                   <p className="font-bold mb-1 text-gray-700">
                     Regular Expression Denial of Service
                   </p>
-                  <Tag theme="alert">Moderate</Tag>
+                  <Tag theme="alert" title="Severity: Moderate">
+                    Moderate
+                  </Tag>
                 </Td>
                 <Td textAlign="center">14th May 2021</Td>
                 <Td textAlign="center">
-                  <Tag theme="info">Patched</Tag>
+                  <Tag theme="info" title="Status: Patched">
+                    Patched
+                  </Tag>
                 </Td>
               </Tr>
 
@@ -98,11 +114,15 @@ export const Vulnerabilities = () => {
                   <p className="font-bold mb-1 text-gray-700">
                     Command Injection
                   </p>
-                  <Tag theme="danger">Critical</Tag>
+                  <Tag theme="danger" title="Severity: Critical">
+                    Critical
+                  </Tag>
                 </Td>
                 <Td textAlign="center">13th May 2021</Td>
                 <Td textAlign="center">
-                  <Tag theme="info">Patched</Tag>
+                  <Tag theme="info" title="Status: Patched">
+                    Patched
+                  </Tag>
                 </Td>
               </Tr>
             </Tbody>
