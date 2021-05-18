@@ -9,3 +9,6 @@ export * from "./tables/Thead";
 export * from "./tables/Tr";
 export * from "./tables/Td";
 export * from "./tables/Th";
+
+// General.
+export * from "./general/Tag";
