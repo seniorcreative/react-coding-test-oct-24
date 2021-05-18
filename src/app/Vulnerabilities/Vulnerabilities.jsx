@@ -25,7 +25,7 @@ export const Vulnerabilities = () => {
         <div className="bg-white border border-gray-300 mx-auto p-4 md:p-6 rounded-lg shadow-sm">
           <div className="mb-4">
             <HeadingOne>Security advisories</HeadingOne>
-            <Small className="block">Showing 15 items</Small>
+            <Small>Showing 15 items</Small>
           </div>
 
           <Table>
