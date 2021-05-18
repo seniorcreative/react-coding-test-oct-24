@@ -14,7 +14,7 @@ export const Filters = () => {
     <>
       <HeadingTwo>Filters</HeadingTwo>
 
-      <Fieldset className="mt-2 mb-6">
+      <Fieldset>
         <Label for="search">Search</Label>
 
         <div class="flex items-center mb-2">
@@ -28,7 +28,7 @@ export const Filters = () => {
         </div>
       </Fieldset>
 
-      <Fieldset className="mt-2 mb-6">
+      <Fieldset>
         <Label>Order by</Label>
 
         <CheckLabel>
@@ -42,7 +42,7 @@ export const Filters = () => {
         </CheckLabel>
       </Fieldset>
 
-      <Fieldset className="mt-2 mb-6">
+      <Fieldset>
         <Label>Severity</Label>
 
         <CheckLabel>
@@ -86,7 +86,7 @@ export const Filters = () => {
         </CheckLabel>
       </Fieldset>
 
-      <Fieldset className="mt-2 mb-6">
+      <Fieldset>
         <Label>Status</Label>
 
         <CheckLabel>
