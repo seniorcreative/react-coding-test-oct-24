@@ -1,5 +1,7 @@
 // Typography
 export * from "./typography/HeadingOne";
+export * from "./typography/HeadingTwo";
+export * from "./typography/HeadingThree";
 export * from "./typography/Small";
 
 // Tables.
