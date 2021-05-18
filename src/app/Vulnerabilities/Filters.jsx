@@ -1,6 +1,13 @@
 import React from "react";
 
-import { Button, CheckLabel, Fieldset, HeadingTwo, Label } from "ui/library";
+import {
+  Button,
+  CheckLabel,
+  Fieldset,
+  HeadingTwo,
+  Label,
+  Radio,
+} from "ui/library";
 
 export const Filters = () => {
   return (
@@ -25,20 +32,12 @@ export const Filters = () => {
         <Label>Order by</Label>
 
         <CheckLabel>
-          <input
-            type="radio"
-            name="order-by"
-            class="form-radio mr-2 rounded-full text-blue-500"
-          />
+          <Radio name="order-by" value="newest" />
           Newest first
         </CheckLabel>
 
         <CheckLabel>
-          <input
-            type="radio"
-            name="order-by"
-            class="form-radio mr-2 rounded-full text-blue-500"
-          />
+          <Radio name="order-by" value="oldest" />
           Oldest first
         </CheckLabel>
       </Fieldset>
@@ -51,7 +50,7 @@ export const Filters = () => {
             type="checkbox"
             class="form-checkbox mr-2 rounded text-blue-500"
           />
-          Info
+          High
         </CheckLabel>
 
         <CheckLabel>
@@ -59,7 +58,7 @@ export const Filters = () => {
             type="checkbox"
             class="form-checkbox mr-2 rounded text-blue-500"
           />
-          Low
+          Info
         </CheckLabel>
 
         <CheckLabel>
@@ -75,7 +74,7 @@ export const Filters = () => {
             type="checkbox"
             class="form-checkbox mr-2 rounded text-blue-500"
           />
-          High
+          Low
         </CheckLabel>
 
         <CheckLabel>

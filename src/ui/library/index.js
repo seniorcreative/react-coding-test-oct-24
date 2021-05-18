@@ -20,3 +20,4 @@ export * from "./general/Button";
 export * from "./forms/CheckLabel";
 export * from "./forms/Fieldset";
 export * from "./forms/Label";
+export * from "./forms/Radio";
