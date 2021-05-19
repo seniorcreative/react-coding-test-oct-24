@@ -4,9 +4,9 @@ This repository contains a React coding challenge prepared by Seer Security for 
 
 ## About the challenge
 
-This is a take-home test and can be completed in your own time. You may be asked how long you took to complete the challenge but there is no time limit. The project comes with UI pre-built using Tailwind CSS but it is entirely static.
+This is a take-home test and can be completed in your own time. You may be asked how long you took to complete the challenge but there is no time limit. Having said that, it's designed so you shouldn't need to spend more than a couple of hours on it.
 
-The challenge is to process data in `src/data/npm-advisories.json`, render it in the UI and hook up the various filters in the sidebar. In addition to this, any filters which a user applies should be re-applied if they close and re-open the app at a later date (not just page refresh).
+The project comes with UI pre-built using Tailwind CSS but it is entirely static. The challenge is to process data in `src/data/npm-advisories.json`, render it in the UI and hook up the various filters in the sidebar. In addition to this, any filters which a user applies should be re-applied if they close and re-open the app at a later date (not just page refresh).
 
 The challenge should use whichever React-based conventions or libraries you are most comfortable with. Candidates are welcome to use TypeScript but it is by no means a requirement.
 
