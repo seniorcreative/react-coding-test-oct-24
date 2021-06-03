@@ -23,6 +23,10 @@ The challenge should use whichever React-based conventions or libraries you are 
 * Add any relevant info about your approach to the challenge to `SOLUTION.md`
 * Return the completed solution as a `.zip` archive
 
+### For bonus points
+
+* Build an "Advisory detail" template and output additional detail about an advisory which can be accessed via the advisory list.
+
 ### Things you aren't required to do
 
 - Paginate results
@@ -34,7 +38,6 @@ The challenge should use whichever React-based conventions or libraries you are 
 - If you find anything in the app which you needed to fix, add it as a note to `SOLUTION.md`
 - How will a user know which filters are currently applied?
 - If you had to retrieve NPM advisory data from an API endpoint, how might you go about it?
-- What steps would you take to create an "Advisory detail" template and output additional detail about an advisory?
 
 ### SOLUTION.md
 
