@@ -1,7 +1,6 @@
-# Seer Security React coding challenge
-## About the repo
+# About the repo
 
-### Technologies used
+## Technologies used
 
 * Bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -11,15 +10,15 @@
 
 * Code is formatted using [prettier](https://prettier.io/) using default settings.
 
-## Using this repo
+# Using this repo
 
-### Installing dependencies
+## Installing dependencies
 
 Within the project directory install all npm dependencies using:
 
 `npm install`
 
-### Development
+## Development
 
 `npm start`
 
@@ -29,9 +28,9 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
 
-### Production build
+## Production build
 
-`npm run start`
+`npm run build`
 
 Builds the app for production to the `build` folder.\
 It correctly bundles React in production mode and optimizes the build for the best performance.
