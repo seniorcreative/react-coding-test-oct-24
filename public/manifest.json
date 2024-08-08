@@ -1,9 +1,9 @@
 {
   "short_name": "TNT-RAD React Challenge",
-  "name": "TNT-RAD  React Challenge",
+  "name": "TNT-RAD React Challenge",
   "icons": [
     {
-      "src": "favicon-32x32.png",
+      "src": "favicon.png",
       "sizes": "32x32 24x24 16x16",
       "type": "image/png"
     }
