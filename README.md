@@ -13,6 +13,7 @@ This React coding challenge prepared by Tesserent RAD is for candidates applying
 * Code is formatted using [prettier](https://prettier.io/) using default settings.
 
 ## Installing dependencies
+Install Node v16
 
 Within the project directory install all npm dependencies using:
 
