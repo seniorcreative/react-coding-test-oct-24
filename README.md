@@ -51,11 +51,9 @@ Key requirements:
     3. Show / hide advisories based on severity
     4. Show / hide advisories based on status
     5. Preserve the user's current UI filter selections in their browser so their most recent selections will be re-applied if they close and re-open their browser tab
+3. Build an "Advisory detail" template and output additional detail about an advisory which can be accessed via the advisory list
 
-For bonus points, you can optionally complete the following tasks:
-
-1. Build an "Advisory detail" template and output additional detail about an advisory which can be accessed via the advisory list
-2. Add unit tests for any functions or components you create
+For bonus points, you can optionally add unit tests for any functions or components you create.
 
 You are not required to complete the following:
 
