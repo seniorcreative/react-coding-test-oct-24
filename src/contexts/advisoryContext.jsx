@@ -56,8 +56,16 @@ export default function LanguageContextProvider({ children }) {
     let advisoryData = StorageController.getPersistItem(
       persistAppPrefix + "advisoryData"
     );
-    // Apply filters for severity
+    // Apply filters for search query on module_name and advisory title
     filteredData = advisoryData.filter(
+      (e) =>
+        String(e.module_name)
+          .toLowerCase()
+          .contains(searchQuery.toLowerCase()) ||
+        String(e.title.toLowerCase()).contains(searchQuery.toLowerCase())
+    );
+    // Apply filters for severity
+    filteredData = filteredData.filter(
       (e) => e.severity.toLowerCase() === severityFilter
     );
     filteredData = filteredData.filter((e) =>
