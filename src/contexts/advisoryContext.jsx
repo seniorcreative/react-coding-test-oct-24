@@ -14,14 +14,12 @@ export const AdvisoryContext = createContext({
 const persistAppPrefix = "persist:advisory:";
 
 export default function LanguageContextProvider({ children }) {
-  // TODO: Build out ability to load / save from localStorage
-
-  const [searchQuery] = useState(StorageController.getPersistItem(persistAppPrefix + "searchQuery") || "");
+  const [searchQuery] = useState(
+    StorageController.getPersistItem(persistAppPrefix + "searchQuery") || ""
+  );
   const setSearchQuery = (value) => {
     StorageController.setPersistItem(persistAppPrefix + "searchQuery");
-
-    // Also here
-  }
+  };
 
   const [orderByFilter] = useState(
     StorageController.getPersistItem(persistAppPrefix + "orderByFilter") || ""
@@ -37,7 +35,10 @@ export default function LanguageContextProvider({ children }) {
     StorageController.setPersistItem(persistAppPrefix + "orderByFilter", value);
   };
   const setSeverityFilter = (value) => {
-    StorageController.setPersistItem(persistAppPrefix + "severityFilter", value);
+    StorageController.setPersistItem(
+      persistAppPrefix + "severityFilter",
+      value
+    );
   };
   const setPatchedFilter = (value) => {
     StorageController.setPersistItem(persistAppPrefix + "patchedFilter", value);
@@ -52,13 +53,31 @@ export default function LanguageContextProvider({ children }) {
   // Filtering method
 
   const advisoryData = () => {
-    let advisoryData = StorageController.getPersistItem(persistAppPrefix + "advisoryData")
+    let advisoryData = StorageController.getPersistItem(
+      persistAppPrefix + "advisoryData"
+    );
     // Apply filters for severity
-    filteredData = advisoryData.filter((e) => e.severity.toLowerCase() === severityFilter);
-    filteredData = advisoryData.filter((e) => patchedFilter ? e.cves.length > 0 : e.cves.length == 0);
-    
+    filteredData = advisoryData.filter(
+      (e) => e.severity.toLowerCase() === severityFilter
+    );
+    filteredData = filteredData.filter((e) =>
+      patchedFilter ? e.cves.length > 0 : e.cves.length == 0
+    );
     // Apply Sorting
-  }
+    switch (orderByFilter.toLowerCase()) {
+      case "newest":
+        filteredData.reduce((a, b) => {
+          return new Date(a.created).getTime() < new Date(b.created).getTime();
+        });
+        break;
+      case "oldest":
+      default:
+        filteredData.reduce((a, b) => {
+          return new Date(a.created).getTime() > new Date(b.created).getTime();
+        });
+        break;
+    }
+  };
 
   return (
     <AdvisoryContext.Provider
