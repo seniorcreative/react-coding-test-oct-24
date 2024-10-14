@@ -1,16 +1,16 @@
-export class StorageController {
-
-  static storageType = "LOCAL_STORAGE";
-  storageController;
+import react, { createContext } from "react";
+export class StorageController  {
 
   constructor() {
 
-    switch(this.storageType) {
+    switch(storageType) {
         case "LOCAL_STORAGE":
         default:
             this.storageController = window.localStorage;
         // TODO: Build out other window storage here if needed (Session, IndexedDB)
     }
+    this.super();
+    return this;
 
   }
 

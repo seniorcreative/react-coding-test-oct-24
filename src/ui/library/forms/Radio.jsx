@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 
 const propTypes = {
-  name: PropTypes.bool,
+  name: PropTypes.string, // This is better done with typescript.
 };
 
 export const Radio = ({ name }) => (

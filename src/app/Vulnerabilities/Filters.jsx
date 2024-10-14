@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { AdvisoryContext } from "contexts/advisoryContext";
 
 import {
@@ -31,7 +31,7 @@ export const Filters = () => {
       <Fieldset>
         <Label for="search">Search</Label>
 
-        <div class="flex items-center mb-2">
+        <div className="flex items-center mb-2">
           <input
             className="block border-1 border-gray-300 form-input mr-2 placeholder-gray-400 px-3 py-2 rounded-lg w-full"
             type="text"
@@ -45,7 +45,7 @@ export const Filters = () => {
 
       <Fieldset>
         <Label>Order by</Label>
-        {orderOptions.map((orderValue) => {
+        {orderOptions.map((orderValue) => (
           <CheckLabel key={orderValue}>
             <Radio
               name="order-by"
@@ -53,18 +53,18 @@ export const Filters = () => {
               onChange={(e) => setOrderByFilter(e.currentTarget.value)}
             />
             {`${orderValue} first`}
-          </CheckLabel>;
-        })}
+          </CheckLabel>
+        ))}
       </Fieldset>
 
       <Fieldset>
         <Label>Severity</Label>
-        {severityOptions.map((severityValue) => {
+        {severityOptions.map((severityValue) => (
           <CheckLabel key={severityValue}>
             <input
               type="checkbox"
               value={severityValue}
-              class={`form-checkbox mr-2 rounded ${
+              className={`form-checkbox mr-2 rounded ${
                 severityFilter === severityValue
                   ? "text-blue-900 underline"
                   : "text-blue-500"
@@ -72,17 +72,17 @@ export const Filters = () => {
               onChange={(e) => setSeverityFilter(e.currentTarget.value)}
             />
             {severityValue}
-          </CheckLabel>;
-        })}
+          </CheckLabel>
+        ))}
       </Fieldset>
 
       <Fieldset>
         <Label>Status</Label>
-        {patchedOptions.map((patchedValue) => {
+        {patchedOptions.map((patchedValue) => (
           <CheckLabel key={patchedValue}>
             <input
               type="checkbox"
-              class={`form-checkbox mr-2 rounded ${
+              className={`form-checkbox mr-2 rounded ${
                 patchedFilter === patchedValue
                   ? "text-blue-900 underline"
                   : "text-blue-500"
@@ -90,8 +90,8 @@ export const Filters = () => {
               onChange={(e) => setPatchedFilter(e.currentTarget.value)}
             />
             {patchedValue}
-          </CheckLabel>;
-        })}
+          </CheckLabel>
+        ))}
       </Fieldset>
     </>
   );

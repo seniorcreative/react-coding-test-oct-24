@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, createContext } from "react";
 
-import StorageController from "../storage/storageController";
+import StorageController from "../storage/storageController"; 
 
 export const AdvisoryContext = createContext({
   searchQuery: "",
@@ -11,51 +11,55 @@ export const AdvisoryContext = createContext({
   setAdvisoryData: () => {},
 });
 
+const data = require("../data/npm-advisories.json");
+
 const persistAppPrefix = "persist:advisory:";
 
-export default function LanguageContextProvider({ children }) {
+export default function AdvisoryContextProvider({ children }) {
+
+  const storageControllerInstance = new StorageController(); // TODO: convert to return singleton
+
   const [searchQuery] = useState(
-    StorageController.getPersistItem(persistAppPrefix + "searchQuery") || ""
+    storageControllerInstance.loadPersistItem(persistAppPrefix + "searchQuery") || ""
   );
   const setSearchQuery = (value) => {
-    StorageController.setPersistItem(persistAppPrefix + "searchQuery");
+    storageControllerInstance.savePersistItem(persistAppPrefix + "searchQuery");
   };
 
   const [orderByFilter] = useState(
-    StorageController.getPersistItem(persistAppPrefix + "orderByFilter") || ""
+    storageControllerInstance.loadPersistItem(persistAppPrefix + "orderByFilter") || ""
   );
   const [severityFilter] = useState(
-    StorageController.getPersistItem(persistAppPrefix + "severityFilter") || ""
+    storageControllerInstance.loadPersistItem(persistAppPrefix + "severityFilter") || ""
   );
   const [patchedFilter] = useState(
-    StorageController.getPersistItem(persistAppPrefix + "patchedFilter") || ""
+    storageControllerInstance.loadPersistItem(persistAppPrefix + "patchedFilter") || ""
   );
 
   const setOrderByFilter = (value) => {
-    StorageController.setPersistItem(persistAppPrefix + "orderByFilter", value);
+    storageControllerInstance.savePersistItem(persistAppPrefix + "orderByFilter", value);
   };
   const setSeverityFilter = (value) => {
-    StorageController.setPersistItem(
+    storageControllerInstance.savePersistItem(
       persistAppPrefix + "severityFilter",
       value
     );
   };
   const setPatchedFilter = (value) => {
-    StorageController.setPersistItem(persistAppPrefix + "patchedFilter", value);
+    storageControllerInstance.savePersistItem(persistAppPrefix + "patchedFilter", value);
   };
 
   const [loadingData, setLoadingData] = useState(false);
 
   const setAdvisoryData = (data) => {
-    StorageController.setPersistItem(persistAppPrefix + "advisoryData", data);
+    console.log("got data to save", data[1])
+    storageControllerInstance.savePersistItem(persistAppPrefix + "advisoryData", data);
   };
 
   // Filtering method
 
   const advisoryData = () => {
-    let advisoryData = StorageController.getPersistItem(
-      persistAppPrefix + "advisoryData"
-    );
+    let advisoryData = data;
     // Apply filters for search query on module_name and advisory title
     filteredData = advisoryData.filter(
       (e) =>
