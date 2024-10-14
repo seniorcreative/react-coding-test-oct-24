@@ -1,4 +1,5 @@
 import React from "react";
+import { AdvisoryContext } from "contexts/advisoryContext";
 
 import {
   Button,
@@ -10,6 +11,19 @@ import {
 } from "ui/library";
 
 export const Filters = () => {
+  const orderOptions = ["Newest", "Oldest"];
+  const severityOptions = ["High", "Info", "Moderate", "Low", "Critical"];
+  const patchedOptions = ["Patched", "Unpatched"];
+
+  const {
+    setSearchQuery,
+    setOrderByFilter,
+    severityFilter,
+    setSeverityFilter,
+    patchedFilter,
+    setPatchedFilter,
+  } = useContext(AdvisoryContext);
+
   return (
     <>
       <HeadingTwo>Filters</HeadingTwo>
@@ -23,6 +37,7 @@ export const Filters = () => {
             type="text"
             id="search"
             placeholder="eg. postcss"
+            onChange={(e) => setSearchQuery(e.currentTarget.value)}
           />
           <Button>&rarr;</Button>
         </div>
@@ -30,80 +45,53 @@ export const Filters = () => {
 
       <Fieldset>
         <Label>Order by</Label>
-
-        <CheckLabel>
-          <Radio name="order-by" value="newest" />
-          Newest first
-        </CheckLabel>
-
-        <CheckLabel>
-          <Radio name="order-by" value="oldest" />
-          Oldest first
-        </CheckLabel>
+        {orderOptions.map((orderValue) => {
+          <CheckLabel key={orderValue}>
+            <Radio
+              name="order-by"
+              value={orderValue}
+              onChange={(e) => setOrderByFilter(e.currentTarget.value)}
+            />
+            {`${orderValue} first`}
+          </CheckLabel>;
+        })}
       </Fieldset>
 
       <Fieldset>
         <Label>Severity</Label>
-
-        <CheckLabel>
-          <input
-            type="checkbox"
-            class="form-checkbox mr-2 rounded text-blue-500"
-          />
-          High
-        </CheckLabel>
-
-        <CheckLabel>
-          <input
-            type="checkbox"
-            class="form-checkbox mr-2 rounded text-blue-500"
-          />
-          Info
-        </CheckLabel>
-
-        <CheckLabel>
-          <input
-            type="checkbox"
-            class="form-checkbox mr-2 rounded text-blue-500"
-          />
-          Moderate
-        </CheckLabel>
-
-        <CheckLabel>
-          <input
-            type="checkbox"
-            class="form-checkbox mr-2 rounded text-blue-500"
-          />
-          Low
-        </CheckLabel>
-
-        <CheckLabel>
-          <input
-            type="checkbox"
-            class="form-checkbox mr-2 rounded text-blue-500"
-          />
-          Critical
-        </CheckLabel>
+        {severityOptions.map((severityValue) => {
+          <CheckLabel key={severityValue}>
+            <input
+              type="checkbox"
+              value={severityValue}
+              class={`form-checkbox mr-2 rounded ${
+                severityFilter === severityValue
+                  ? "text-blue-900 underline"
+                  : "text-blue-500"
+              }`}
+              onChange={(e) => setSeverityFilter(e.currentTarget.value)}
+            />
+            {severityValue}
+          </CheckLabel>;
+        })}
       </Fieldset>
 
       <Fieldset>
         <Label>Status</Label>
-
-        <CheckLabel>
-          <input
-            type="checkbox"
-            class="form-checkbox mr-2 rounded text-blue-500"
-          />
-          Patched
-        </CheckLabel>
-
-        <CheckLabel>
-          <input
-            type="checkbox"
-            class="form-checkbox mr-2 rounded text-blue-500"
-          />
-          Unpatched
-        </CheckLabel>
+        {patchedOptions.map((patchedValue) => {
+          <CheckLabel key={patchedValue}>
+            <input
+              type="checkbox"
+              class={`form-checkbox mr-2 rounded ${
+                patchedFilter === patchedValue
+                  ? "text-blue-900 underline"
+                  : "text-blue-500"
+              }`}
+              onChange={(e) => setPatchedFilter(e.currentTarget.value)}
+            />
+            {patchedValue}
+          </CheckLabel>;
+        })}
       </Fieldset>
     </>
   );

@@ -28,4 +28,5 @@ export class StorageController {
   loadPersistItem(name) {
     return this.storageController.getItem(name);
   }
+
 }
