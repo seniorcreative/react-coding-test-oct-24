@@ -1,5 +1,4 @@
 import React, { useState, createContext } from "react";
-
 import StorageController from "../storage/storageController"; 
 
 export const AdvisoryContext = createContext({
@@ -10,8 +9,6 @@ export const AdvisoryContext = createContext({
   advisoryData: [],
   setAdvisoryData: () => {},
 });
-
-const data = require("../data/npm-advisories.json");
 
 const persistAppPrefix = "persist:advisory:";
 
@@ -51,15 +48,18 @@ export default function AdvisoryContextProvider({ children }) {
 
   const [loadingData, setLoadingData] = useState(false);
 
-  const setAdvisoryData = (data) => {
-    console.log("got data to save", data[1])
-    storageControllerInstance.savePersistItem(persistAppPrefix + "advisoryData", data);
-  };
+  const [advisoryData, setAdvisoryData] = useState([]);
+
+  // const setAdvisoryData = (data) => {
+  //   storageControllerInstance.savePersistItem(persistAppPrefix + "advisoryData", data);
+  // };
 
   // Filtering method
+  let filteredData;
 
-  const advisoryData = () => {
-    let advisoryData = data;
+  const filteredAdvisoryData = () => {
+    console.log("local data", advisoryData);
+    // let advisoryData = data;
     // Apply filters for search query on module_name and advisory title
     filteredData = advisoryData.filter(
       (e) =>
@@ -73,18 +73,18 @@ export default function AdvisoryContextProvider({ children }) {
       (e) => e.severity.toLowerCase() === severityFilter
     );
     filteredData = filteredData.filter((e) =>
-      patchedFilter ? e.cves.length > 0 : e.cves.length == 0
+      patchedFilter ? e.cves.length > 0 : e.cves.length === 0
     );
     // Apply Sorting
     switch (orderByFilter.toLowerCase()) {
       case "newest":
-        filteredData.reduce((a, b) => {
+        filteredData.sort((a, b) => {
           return new Date(a.created).getTime() < new Date(b.created).getTime();
         });
         break;
       case "oldest":
       default:
-        filteredData.reduce((a, b) => {
+        filteredData.sort((a, b) => {
           return new Date(a.created).getTime() > new Date(b.created).getTime();
         });
         break;
@@ -106,6 +106,7 @@ export default function AdvisoryContextProvider({ children }) {
         setLoadingData,
         advisoryData,
         setAdvisoryData,
+        filteredAdvisoryData
       }}
     >
       {children}

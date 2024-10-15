@@ -1,7 +1,8 @@
-import react, { createContext } from "react";
-export class StorageController  {
+export default class StorageController  {
+  
+  constructor(storageType) {
 
-  constructor() {
+    this.storageType = storageType;
 
     switch(storageType) {
         case "LOCAL_STORAGE":
@@ -9,8 +10,6 @@ export class StorageController  {
             this.storageController = window.localStorage;
         // TODO: Build out other window storage here if needed (Session, IndexedDB)
     }
-    this.super();
-    return this;
 
   }
 

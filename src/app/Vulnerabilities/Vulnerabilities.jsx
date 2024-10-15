@@ -2,14 +2,32 @@ import React, { useContext, useEffect } from "react";
 
 import { Filters } from "./Filters";
 
-import { HeadingOne, Small, Table, Thead, Tbody, Tr, Th, P } from "ui/library";
+import { HeadingOne, Small, Table, Thead, Tbody, Tr, Th } from "ui/library";
 import { AdvisoryContext } from "contexts/advisoryContext";
 import { ModalContext } from "contexts/modalContext";
 import { VulnerabilityModal } from "./VulnerabilityModal";
+import { VulnerabilityListing } from "./VulnerabilityListing";
 
 export const Vulnerabilities = () => {
-  const { loadingData, advisoryData } = useContext(AdvisoryContext);
+  const { loadingData, advisoryData, setAdvisoryData, filteredAdvisoryData } = useContext(AdvisoryContext);
   const { setModalData, setShowModal } = useContext(ModalContext);
+
+  useEffect(() => {
+    // DATA
+
+    fetch("../data/npm-advisories.json", {
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+    })
+      // return JSON object
+      .then((res) => res.json())
+      .then(data => {
+        setAdvisoryData(data);
+      })
+
+  }, [setAdvisoryData]);
 
   // For if this gets hooked up to an async process e.g a fetch API...
   if (loadingData) {
@@ -32,7 +50,7 @@ export const Vulnerabilities = () => {
               <div className="mb-4">
                 <HeadingOne>Security advisories</HeadingOne>
                 <Small>{`Showing ${advisoryData.length} item${
-                  advisoryData.length == 1 ? "" : "s"
+                  advisoryData.length === 1 ? "" : "s"
                 }`}</Small>
               </div>
               <Table>
@@ -45,7 +63,7 @@ export const Vulnerabilities = () => {
                 </Thead>
 
                 <Tbody>
-                  {advisoryData.map((data, i) => {
+                  {advisoryData.map((data, i) => (
                     <VulnerabilityListing
                       key={i}
                       listingData={data}
@@ -54,8 +72,8 @@ export const Vulnerabilities = () => {
                         setModalData(data);
                         setShowModal(true);
                       }}
-                    ></VulnerabilityListing>;
-                  })}
+                    ></VulnerabilityListing>
+                  ))}
                 </Tbody>
               </Table>
             </div>

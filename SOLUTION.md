@@ -2,33 +2,34 @@
 
 ### Notes
 
-Noting that in your README you've got node 16. Node 16 was end of support Sep 2023, so with that comes issues with compatibility and therefore vulnerabilities. 
-I would recommend updating Node and also I would ask about the general strategy for keeping node package dependencies up to date on a regular basis
-(This can be done with dependabot reviews for example, typically done as per a SOC2-type 1 or 2 certification). 
+In your README you've got node 16. Node 16 was end of support Sep 2023, so with that comes risk of compatibility vulnerabilities. 
 
-I used nvm to swap down to the old version of node.
+I would recommend updating Node plus question the general strategy for keeping npm dependencies updated on a regular basis (As is done with dependabot reviews, typically for a SOC2-type 1/2 certification). 
 
-In terms of upgrading packages and node versions I'm going to consider that out of the scope of this test but I am happy to discuss how I would go about doing this as it is something  I do regularly in my current position.
+I used `nvm` to swap down to the old version of node to run the required version stated in your README.
+
+In terms of upgrading packages and node versions, this as it is something I do regularly in my current position, typically by editing package locks and re-running `npm install` though I have much of a preference for using `yarn` and it's plugins like `yarn upgrade-interactive`.
  
 
 ## Reasoning
 
-I wanted to use localstorage, and react.context / contextProvider as I prefer it to props-drilling. I will say that it has been a long time since I have not worked outside of ts/tsx set up. I didn't want to spend time converting this project to typescript just for the sake of that.
+I wanted to use localstorage, and React's useContext hook as I prefer it to props-drilling. It has been a long time since I have not worked outside of ts/tsx. I decided to spend time coding the features rather than convering this project to typescript.
 
 ## Issues
 
-Incorrect prop types , and missing className attributes.
-Not clear to me how to differentiate when a vulnerability item from the JSON list is "patched", so had to make an assumption. Normally this would be questioned as part of a kick-off meeting just to try and eradicate any unknowns.
+Incorrect prop types, missing className attributes.
+Not clear how to differentiate when a vulnerability item from the JSON data source is "patched", so had to make an assumption. Normally this would be questioned as part of a kick-off meeting just to try and eradicate any unknowns.
+
+Have had to try a couple of different ways to load the JSON data - fetch, import, require etc. Assuming this is going to be coming from a real API, would try to code the async method to load this for if/when it needs to switch over. Could then use an .env var for the basePath of that API. Ended up moving the data into /public and fetching it.
 
 
 ## Testing
 
-In my day to day work ALL code has to meet minimum 80% test coverage. That would have meant mocking / spy functions.
-It can be quite long winded. I just added a couple of simple tests and fixed up the app.test.
+In my day to day work ALL code has to meet minimum 80% test coverage. That would have meant mocking / spy functions. It can be quite long winded. I just added a couple of simple tests and fixed up `app.test.js`
 
 
 ## Compromises
-I will say I have done 90% of this completely offline in about 4hrs with no code resources as I am on a plane to London. I've got some issues out of the box getting this running offline in Linux when running `yarn run start`, such as
+I will say I have done 90% of this completely offline in about 4hrs on a plane to London. I've got some issues out of the box getting this running offline in Linux when running `npm run start`:
 
 ```
 library: 'digital envelope routines',
@@ -38,6 +39,11 @@ code: 'ERR_OSSL_EVP_UNSUPPORTED'
 
 Therefore, I resorted to TDD - which has been very helpful in terms of being able to test seperate self contained parts of the app and fix bugs/issues with those.
 
+SOLUTION is to upgrade node or run: `NODE_OPTIONS=--openssl-legacy-provider npm run start`
+
+
+
+
 ### Summary 
-It's a fun challenge. I appreciated the opportunity to do this. Not being able to search for solutions using online resources or even asking AI is something that you really notice when it's not there, however it's a good reminder of what I don't know. 
+A fun challenge. Not being able to search for solutions using online resources is something that you really notice when it's not there, however it's a good reminder of what I don't know. 
 

@@ -1,9 +1,10 @@
-import React, { createContext } from "react";
+import React, { createContext, useState } from "react";
 
 export const ModalContext = createContext({
   showModal: false, 
   setShowModal: () => {}, 
-  modalData: {}
+  modalData: {},
+  setModalData: () => {}
 });
 
 
