@@ -1,5 +1,5 @@
-import React, { useState, createContext } from "react";
-import StorageController from "../storage/storageController"; 
+import React, { useState, createContext, useEffect } from "react";
+import StorageController from "../storage/storageController";
 
 export const AdvisoryContext = createContext({
   searchQuery: "",
@@ -13,83 +13,119 @@ export const AdvisoryContext = createContext({
 const persistAppPrefix = "persist:advisory:";
 
 export default function AdvisoryContextProvider({ children }) {
-
   const storageControllerInstance = new StorageController(); // TODO: convert to return singleton
 
   const [searchQuery] = useState(
-    storageControllerInstance.loadPersistItem(persistAppPrefix + "searchQuery") || ""
+    storageControllerInstance.loadPersistItem(
+      persistAppPrefix + "searchQuery"
+    ) || ""
   );
   const setSearchQuery = (value) => {
     storageControllerInstance.savePersistItem(persistAppPrefix + "searchQuery");
   };
 
-  const [orderByFilter] = useState(
-    storageControllerInstance.loadPersistItem(persistAppPrefix + "orderByFilter") || ""
+  const [orderByFilter, overrideOrderByFilter] = useState(
+    storageControllerInstance.loadPersistItem(
+      persistAppPrefix + "orderByFilter"
+    ) || []
   );
-  const [severityFilter] = useState(
-    storageControllerInstance.loadPersistItem(persistAppPrefix + "severityFilter") || ""
+  const [severityFilter, overrideSeverityFilter] = useState(
+    storageControllerInstance.loadPersistItem(
+      persistAppPrefix + "severityFilter"
+    ) || []
   );
-  const [patchedFilter] = useState(
-    storageControllerInstance.loadPersistItem(persistAppPrefix + "patchedFilter") || ""
+  const [patchedFilter, overridePatchedFilter] = useState(
+    storageControllerInstance.loadPersistItem(
+      persistAppPrefix + "patchedFilter"
+    ) || []
   );
 
   const setOrderByFilter = (value) => {
-    storageControllerInstance.savePersistItem(persistAppPrefix + "orderByFilter", value);
-  };
-  const setSeverityFilter = (value) => {
     storageControllerInstance.savePersistItem(
-      persistAppPrefix + "severityFilter",
+      persistAppPrefix + "orderByFilter",
       value
     );
   };
+
+  // This will toggle presence of multiple strings in an array.
+  // Suggest converting it to a util function.
+  const setSeverityFilter = ([name, checked]) => {
+    let currentPersistItem =
+      JSON.parse(
+        storageControllerInstance.loadPersistItem(
+          persistAppPrefix + "severityFilter"
+        )
+      ) || [];
+    if (checked) {
+      currentPersistItem.push(name);
+    } else {
+      currentPersistItem.splice(currentPersistItem.indexOf(name), 1);
+    }
+    storageControllerInstance.savePersistItem(
+      persistAppPrefix + "severityFilter",
+      JSON.stringify(currentPersistItem)
+    );
+    overrideSeverityFilter(currentPersistItem);
+  };
+
   const setPatchedFilter = (value) => {
-    storageControllerInstance.savePersistItem(persistAppPrefix + "patchedFilter", value);
+    storageControllerInstance.savePersistItem(
+      persistAppPrefix + "patchedFilter",
+      value
+    );
   };
 
   const [loadingData, setLoadingData] = useState(false);
 
   const [advisoryData, setAdvisoryData] = useState([]);
 
-  // const setAdvisoryData = (data) => {
-  //   storageControllerInstance.savePersistItem(persistAppPrefix + "advisoryData", data);
-  // };
+  const [filteredAdvisoryData, setFilteredAdvisoryData] = useState([]);
 
-  // Filtering method
-  let filteredData;
-
-  const filteredAdvisoryData = () => {
-    console.log("local data", advisoryData);
-    // let advisoryData = data;
-    // Apply filters for search query on module_name and advisory title
-    filteredData = advisoryData.filter(
-      (e) =>
-        String(e.module_name)
-          .toLowerCase()
-          .contains(searchQuery.toLowerCase()) ||
-        String(e.title.toLowerCase()).contains(searchQuery.toLowerCase())
-    );
-    // Apply filters for severity
-    filteredData = filteredData.filter(
-      (e) => e.severity.toLowerCase() === severityFilter
-    );
-    filteredData = filteredData.filter((e) =>
-      patchedFilter ? e.cves.length > 0 : e.cves.length === 0
-    );
-    // Apply Sorting
-    switch (orderByFilter.toLowerCase()) {
-      case "newest":
-        filteredData.sort((a, b) => {
-          return new Date(a.created).getTime() < new Date(b.created).getTime();
-        });
-        break;
-      case "oldest":
-      default:
-        filteredData.sort((a, b) => {
-          return new Date(a.created).getTime() > new Date(b.created).getTime();
-        });
-        break;
-    }
-  };
+  useEffect(() => {
+    let filteredData;
+    let _filteredAdvisoryData = () => {
+      // console.log("local data", advisoryData);
+      // let advisoryData = data;
+      // Apply filters for search query on module_name and advisory title
+      console.log("searchQuery", searchQuery);
+      
+      filteredData = searchQuery ? advisoryData.filter(
+        ([module_name, title]) =>
+          String(module_name.toLowerCase())
+            .includes(searchQuery.toLowerCase()) ||
+          String(title.toLowerCase()).includes(searchQuery.toLowerCase())
+      ) : advisoryData;
+      // Apply filters for severity
+      console.log("filtered data length before", filteredData.length, severityFilter);
+      filteredData = filteredData.filter(
+        (e) => e.severity.toLowerCase() === 'high' 
+      );
+      console.log("filtered data length after", filteredData.length, severityFilter);
+      filteredData = filteredData.filter((e) =>
+        patchedFilter ? e.cves.length > 0 : e.cves.length === 0
+      );
+      // Apply Sorting
+      switch (String(orderByFilter).toLowerCase()) {
+        case "newest":
+          filteredData.sort((a, b) => {
+            return (
+              new Date(a.created).getTime() < new Date(b.created).getTime()
+            );
+          });
+          break;
+        case "oldest":
+        default:
+          filteredData.sort((a, b) => {
+            return (
+              new Date(a.created).getTime() > new Date(b.created).getTime()
+            );
+          });
+          break;
+      }
+    };
+    console.log("edited filter data", filteredData, advisoryData);
+    setFilteredAdvisoryData(_filteredAdvisoryData);
+  }, [severityFilter, searchQuery, advisoryData]);
 
   return (
     <AdvisoryContext.Provider
@@ -106,7 +142,7 @@ export default function AdvisoryContextProvider({ children }) {
         setLoadingData,
         advisoryData,
         setAdvisoryData,
-        filteredAdvisoryData
+        filteredAdvisoryData,
       }}
     >
       {children}

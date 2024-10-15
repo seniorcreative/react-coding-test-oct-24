@@ -50,7 +50,12 @@ export const Filters = () => {
             <Radio
               name="order-by"
               value={orderValue}
-              onChange={(e) => setOrderByFilter(e.currentTarget.value)}
+              onChange={(e) =>
+                setOrderByFilter([
+                  e.currentTarget.value,
+                  e.currentTarget.checked,
+                ])
+              }
             />
             {`${orderValue} first`}
           </CheckLabel>
@@ -64,12 +69,18 @@ export const Filters = () => {
             <input
               type="checkbox"
               value={severityValue}
+              checked={severityFilter.indexOf(severityValue) !== -1}
               className={`form-checkbox mr-2 rounded ${
                 severityFilter === severityValue
                   ? "text-blue-900 underline"
                   : "text-blue-500"
               }`}
-              onChange={(e) => setSeverityFilter(e.currentTarget.value)}
+              onChange={(e) => {
+                setSeverityFilter([
+                  e.currentTarget.value,
+                  e.currentTarget.checked,
+                ]);
+              }}
             />
             {severityValue}
           </CheckLabel>
@@ -87,7 +98,12 @@ export const Filters = () => {
                   ? "text-blue-900 underline"
                   : "text-blue-500"
               }`}
-              onChange={(e) => setPatchedFilter(e.currentTarget.value)}
+              onChange={(e) =>
+                setPatchedFilter([
+                  e.currentTarget.value,
+                  e.currentTarget.checked,
+                ])
+              }
             />
             {patchedValue}
           </CheckLabel>
