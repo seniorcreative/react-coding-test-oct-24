@@ -40,11 +40,13 @@ export default function AdvisoryContextProvider({ children }) {
     ) || []
   );
 
-  const setOrderByFilter = (value) => {
+  const setOrderByFilter = ([value, checked]) => {
+    console.log("value", value, "checked", checked);
     storageControllerInstance.savePersistItem(
       persistAppPrefix + "orderByFilter",
       value
     );
+    overrideOrderByFilter(value);
   };
 
   // This will toggle presence of multiple strings in an array.
@@ -65,7 +67,7 @@ export default function AdvisoryContextProvider({ children }) {
       persistAppPrefix + "severityFilter",
       JSON.stringify(currentPersistItem)
     );
-    overrideSeverityFilter(currentPersistItem);
+    overrideSeverityFilter(JSON.stringify(currentPersistItem));
   };
 
   const setPatchedFilter = (value) => {
@@ -82,50 +84,55 @@ export default function AdvisoryContextProvider({ children }) {
   const [filteredAdvisoryData, setFilteredAdvisoryData] = useState([]);
 
   useEffect(() => {
-    let filteredData;
-    let _filteredAdvisoryData = () => {
-      // console.log("local data", advisoryData);
-      // let advisoryData = data;
-      // Apply filters for search query on module_name and advisory title
-      console.log("searchQuery", searchQuery);
-      
-      filteredData = searchQuery ? advisoryData.filter(
-        ([module_name, title]) =>
-          String(module_name.toLowerCase())
-            .includes(searchQuery.toLowerCase()) ||
-          String(title.toLowerCase()).includes(searchQuery.toLowerCase())
-      ) : advisoryData;
-      // Apply filters for severity
-      console.log("filtered data length before", filteredData.length, severityFilter);
+    // const filteredAdvisoryData = () => {
+    if (!advisoryData.length) {
+      return;
+    }
+    let filteredData = advisoryData;
+
+    // console.log("local data", advisoryData);
+
+    // let advisoryData = data;
+    // Apply filters for search query on module_name and advisory title
+    // console.log("searchQuery", searchQuery);
+
+    // filteredData = advisoryData;
+
+    // filteredData = searchQuery ? advisoryData.filter(
+    //   ([module_name, title]) =>
+    //     String(module_name.toLowerCase())
+    //       .includes(searchQuery.toLowerCase()) ||
+    //     String(title.toLowerCase()).includes(searchQuery.toLowerCase())
+    // ) : advisoryData;
+    
+    if (JSON.parse(severityFilter).length > 0) {
       filteredData = filteredData.filter(
-        (e) => e.severity.toLowerCase() === 'high' 
+        (e) => JSON.parse(severityFilter).map((s) => s.toLowerCase()).includes(e.severity.toLowerCase())
       );
-      console.log("filtered data length after", filteredData.length, severityFilter);
-      filteredData = filteredData.filter((e) =>
-        patchedFilter ? e.cves.length > 0 : e.cves.length === 0
-      );
-      // Apply Sorting
-      switch (String(orderByFilter).toLowerCase()) {
-        case "newest":
-          filteredData.sort((a, b) => {
-            return (
-              new Date(a.created).getTime() < new Date(b.created).getTime()
-            );
-          });
-          break;
-        case "oldest":
-        default:
-          filteredData.sort((a, b) => {
-            return (
-              new Date(a.created).getTime() > new Date(b.created).getTime()
-            );
-          });
-          break;
-      }
-    };
-    console.log("edited filter data", filteredData, advisoryData);
-    setFilteredAdvisoryData(_filteredAdvisoryData);
-  }, [severityFilter, searchQuery, advisoryData]);
+    }
+    
+    // filteredData = filteredData.filter((e) =>
+    //   patchedFilter ? e.cves.length > 0 : e.cves.length === 0
+    // );
+    // Apply Sorting
+    console.log("String(orderByFilter).toLowerCase()", String(orderByFilter).toLowerCase());
+    switch (String(orderByFilter).toLowerCase()) {
+      case "newest":
+        filteredData.sort(function(a, b){ 
+          return new Date(b.created) - new Date(a.created);
+        });
+        break;
+      case "oldest":
+      default:
+        filteredData.sort(function(a, b) {
+          return new Date(a.created) - new Date(b.created);
+        });
+        break;
+    }
+    console.log("edited filter data", filteredData);
+    setFilteredAdvisoryData(filteredData);
+    // };
+  }, [severityFilter, searchQuery, advisoryData, orderByFilter, patchedFilter]);
 
   return (
     <AdvisoryContext.Provider

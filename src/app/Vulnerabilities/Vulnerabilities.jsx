@@ -38,7 +38,7 @@ export const Vulnerabilities = () => {
     );
   }
 
-  if (advisoryData && advisoryData.length) {
+  if (filteredAdvisoryData.length) {
     return (
       <>
         <div className="md:flex md:flex-row-reverse">
@@ -49,8 +49,8 @@ export const Vulnerabilities = () => {
             <div className="bg-white border border-gray-300 mx-auto p-4 md:p-6 rounded-lg lg:rounded-xl shadow-sm lg:shadow-md">
               <div className="mb-4">
                 <HeadingOne>Security advisories</HeadingOne>
-                <Small>{`Showing ${advisoryData.length} item${
-                  advisoryData.length === 1 ? "" : "s"
+                <Small>{`Showing ${filteredAdvisoryData.length} item${
+                  filteredAdvisoryData.length === 1 ? "" : "s"
                 }`}</Small>
               </div>
               <Table>
@@ -63,11 +63,12 @@ export const Vulnerabilities = () => {
                 </Thead>
 
                 <Tbody>
-                  {advisoryData.map((data, i) => (
+                  {filteredAdvisoryData.map((data, i) => (
                     <VulnerabilityListing
                       key={i}
                       listingData={data}
                       className="cursor-pointer"
+                      num={i}
                       onClick={() => {
                         setModalData(data);
                         setShowModal(true);
@@ -86,7 +87,7 @@ export const Vulnerabilities = () => {
   } else {
     return (
       <div className="md:flex">
-        <p>There are no advisories to show. {advisoryData.length}</p>
+        <p>There are no advisories to show.</p>
       </div>
     );
   }

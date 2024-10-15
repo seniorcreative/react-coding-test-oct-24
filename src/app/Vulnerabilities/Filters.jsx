@@ -18,6 +18,7 @@ export const Filters = () => {
   const {
     setSearchQuery,
     setOrderByFilter,
+    orderByFilter,
     severityFilter,
     setSeverityFilter,
     patchedFilter,
@@ -44,18 +45,20 @@ export const Filters = () => {
       </Fieldset>
 
       <Fieldset>
-        <Label>Order by</Label>
+        <Label>Order by {orderByFilter}</Label>
         {orderOptions.map((orderValue) => (
           <CheckLabel key={orderValue}>
             <Radio
               name="order-by"
               value={orderValue}
-              onChange={(e) =>
+              checked={orderValue === orderByFilter}
+              onChange={(e) => {
+                console.log("changing sort", e.currentTarget.checked, e.currentTarget.value);
                 setOrderByFilter([
                   e.currentTarget.value,
                   e.currentTarget.checked,
-                ])
-              }
+                ]);
+              }}
             />
             {`${orderValue} first`}
           </CheckLabel>
