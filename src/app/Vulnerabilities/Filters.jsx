@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useRef } from "react";
 import { AdvisoryContext } from "contexts/advisoryContext";
 
 import {
@@ -15,8 +15,11 @@ export const Filters = () => {
   const severityOptions = ["High", "Info", "Moderate", "Low", "Critical"];
   const patchedOptions = ["Patched", "Unpatched"];
 
+  const searchInputRef = useRef("");
+
   const {
     setSearchQuery,
+    searchQuery,
     setOrderByFilter,
     orderByFilter,
     severityFilter,
@@ -37,10 +40,12 @@ export const Filters = () => {
             className="block border-1 border-gray-300 form-input mr-2 placeholder-gray-400 px-3 py-2 rounded-lg w-full"
             type="text"
             id="search"
+            ref={searchInputRef}
             placeholder="eg. postcss"
-            onChange={(e) => setSearchQuery(e.currentTarget.value)}
           />
-          <Button>&rarr;</Button>
+          <Button onClick={() => setSearchQuery(searchInputRef.current.value)}>
+            &rarr;
+          </Button>
         </div>
       </Fieldset>
 
@@ -53,7 +58,11 @@ export const Filters = () => {
               value={orderValue}
               checked={orderValue === orderByFilter}
               onChange={(e) => {
-                console.log("changing sort", e.currentTarget.checked, e.currentTarget.value);
+                console.log(
+                  "changing sort",
+                  e.currentTarget.checked,
+                  e.currentTarget.value
+                );
                 setOrderByFilter([
                   e.currentTarget.value,
                   e.currentTarget.checked,

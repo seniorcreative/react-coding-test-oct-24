@@ -5,13 +5,15 @@ import classNames from "classnames";
 const propTypes = {
   children: PropTypes.node,
   textAlign: PropTypes.oneOf(["left", "center", "right"]),
+  colspan: PropTypes.number
 };
 
-export const Td = ({ children, textAlign }) => (
+export const Td = ({ children, textAlign, colspan }) => (
   <td
     className={classNames("py-6", "px-2", {
       [`text-${textAlign}`]: textAlign ? textAlign : undefined,
     })}
+    colSpan={colspan}
   >
     {children}
   </td>

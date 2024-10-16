@@ -10,40 +10,45 @@ export const AdvisoryContext = createContext({
   setAdvisoryData: () => {},
 });
 
-const persistAppPrefix = "persist:advisory:";
+// TODO: Move to config
+const PERSIST_PREFIX = "persist:advisory:";
+const SEARCH_MIN_LENGTH = 3;
 
 export default function AdvisoryContextProvider({ children }) {
   const storageControllerInstance = new StorageController(); // TODO: convert to return singleton
 
-  const [searchQuery] = useState(
-    storageControllerInstance.loadPersistItem(
-      persistAppPrefix + "searchQuery"
-    ) || ""
+  const [searchQuery, overrideSearchQuery] = useState(
+    storageControllerInstance.loadPersistItem(PERSIST_PREFIX + "searchQuery") ||
+      ""
   );
   const setSearchQuery = (value) => {
-    storageControllerInstance.savePersistItem(persistAppPrefix + "searchQuery");
+    storageControllerInstance.savePersistItem(
+      PERSIST_PREFIX + "searchQuery",
+      value
+    );
+    overrideSearchQuery(value);
   };
 
   const [orderByFilter, overrideOrderByFilter] = useState(
     storageControllerInstance.loadPersistItem(
-      persistAppPrefix + "orderByFilter"
+      PERSIST_PREFIX + "orderByFilter"
     ) || []
   );
   const [severityFilter, overrideSeverityFilter] = useState(
     storageControllerInstance.loadPersistItem(
-      persistAppPrefix + "severityFilter"
+      PERSIST_PREFIX + "severityFilter"
     ) || []
   );
   const [patchedFilter, overridePatchedFilter] = useState(
     storageControllerInstance.loadPersistItem(
-      persistAppPrefix + "patchedFilter"
+      PERSIST_PREFIX + "patchedFilter"
     ) || []
   );
 
   const setOrderByFilter = ([value, checked]) => {
     console.log("value", value, "checked", checked);
     storageControllerInstance.savePersistItem(
-      persistAppPrefix + "orderByFilter",
+      PERSIST_PREFIX + "orderByFilter",
       value
     );
     overrideOrderByFilter(value);
@@ -55,7 +60,7 @@ export default function AdvisoryContextProvider({ children }) {
     let currentPersistItem =
       JSON.parse(
         storageControllerInstance.loadPersistItem(
-          persistAppPrefix + "severityFilter"
+          PERSIST_PREFIX + "severityFilter"
         )
       ) || [];
     if (checked) {
@@ -64,7 +69,7 @@ export default function AdvisoryContextProvider({ children }) {
       currentPersistItem.splice(currentPersistItem.indexOf(name), 1);
     }
     storageControllerInstance.savePersistItem(
-      persistAppPrefix + "severityFilter",
+      PERSIST_PREFIX + "severityFilter",
       JSON.stringify(currentPersistItem)
     );
     overrideSeverityFilter(JSON.stringify(currentPersistItem));
@@ -72,7 +77,7 @@ export default function AdvisoryContextProvider({ children }) {
 
   const setPatchedFilter = (value) => {
     storageControllerInstance.savePersistItem(
-      persistAppPrefix + "patchedFilter",
+      PERSIST_PREFIX + "patchedFilter",
       value
     );
   };
@@ -83,55 +88,51 @@ export default function AdvisoryContextProvider({ children }) {
 
   const [filteredAdvisoryData, setFilteredAdvisoryData] = useState([]);
 
+  // TODO: Break out methods in this userEffect - complexity is too high
   useEffect(() => {
-    // const filteredAdvisoryData = () => {
     if (!advisoryData.length) {
       return;
     }
     let filteredData = advisoryData;
 
-    // console.log("local data", advisoryData);
-
-    // let advisoryData = data;
     // Apply filters for search query on module_name and advisory title
-    // console.log("searchQuery", searchQuery);
+    console.log("searchQuery", searchQuery);
 
-    // filteredData = advisoryData;
+    if (searchQuery.length >= SEARCH_MIN_LENGTH) {
+      filteredData = filteredData.filter((e) => e.title.toLowerCase().includes(searchQuery.toLowerCase()) || e.module_name.toLowerCase().includes(searchQuery.toLowerCase()));
+    }
 
-    // filteredData = searchQuery ? advisoryData.filter(
-    //   ([module_name, title]) =>
-    //     String(module_name.toLowerCase())
-    //       .includes(searchQuery.toLowerCase()) ||
-    //     String(title.toLowerCase()).includes(searchQuery.toLowerCase())
-    // ) : advisoryData;
-    
     if (JSON.parse(severityFilter).length > 0) {
-      filteredData = filteredData.filter(
-        (e) => JSON.parse(severityFilter).map((s) => s.toLowerCase()).includes(e.severity.toLowerCase())
+      filteredData = filteredData.filter((e) =>
+        JSON.parse(severityFilter)
+          .map((s) => s.toLowerCase())
+          .includes(e.severity.toLowerCase())
       );
     }
-    
-    // filteredData = filteredData.filter((e) =>
-    //   patchedFilter ? e.cves.length > 0 : e.cves.length === 0
-    // );
+
+    if (patchedFilter) {
+      filteredData = filteredData.filter((e) =>
+        patchedFilter ? e.cves.length > 0 : e.cves.length === 0
+      );
+    }
+
     // Apply Sorting
-    console.log("String(orderByFilter).toLowerCase()", String(orderByFilter).toLowerCase());
     switch (String(orderByFilter).toLowerCase()) {
       case "newest":
-        filteredData.sort(function(a, b){ 
+        filteredData.sort(function (a, b) {
           return new Date(b.created) - new Date(a.created);
         });
         break;
       case "oldest":
       default:
-        filteredData.sort(function(a, b) {
+        filteredData.sort(function (a, b) {
           return new Date(a.created) - new Date(b.created);
         });
         break;
     }
     console.log("edited filter data", filteredData);
+
     setFilteredAdvisoryData(filteredData);
-    // };
   }, [severityFilter, searchQuery, advisoryData, orderByFilter, patchedFilter]);
 
   return (
