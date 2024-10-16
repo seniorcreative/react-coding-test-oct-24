@@ -96,10 +96,12 @@ export default function AdvisoryContextProvider({ children }) {
     let filteredData = advisoryData;
 
     // Apply filters for search query on module_name and advisory title
-    console.log("searchQuery", searchQuery);
-
     if (searchQuery.length >= SEARCH_MIN_LENGTH) {
-      filteredData = filteredData.filter((e) => e.title.toLowerCase().includes(searchQuery.toLowerCase()) || e.module_name.toLowerCase().includes(searchQuery.toLowerCase()));
+      filteredData = filteredData.filter(
+        (e) =>
+          e.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+          e.module_name.toLowerCase().includes(searchQuery.toLowerCase())
+      );
     }
 
     if (JSON.parse(severityFilter).length > 0) {

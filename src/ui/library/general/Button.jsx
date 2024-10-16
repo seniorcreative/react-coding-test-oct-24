@@ -8,7 +8,7 @@ const propTypes = {
 
 export const Button = ({ children, onClick }) => (
   <button
-    className="bg-gray-600 rounded-lg text-white py-2 px-4"
+    className="bg-gray-600 rounded-lg text-white py-0 px-2 text-lg"
     onClick={onClick}
   >
     {children}

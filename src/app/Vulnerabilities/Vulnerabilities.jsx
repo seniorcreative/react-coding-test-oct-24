@@ -14,15 +14,12 @@ export const Vulnerabilities = () => {
   const { setModalData, setShowModal } = useContext(ModalContext);
 
   useEffect(() => {
-    // DATA
-
     fetch("../data/npm-advisories.json", {
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
       },
     })
-      // return JSON object
       .then((res) => res.json())
       .then((data) => {
         setAdvisoryData(data);
@@ -30,6 +27,7 @@ export const Vulnerabilities = () => {
   }, [setAdvisoryData]);
 
   // For if this gets hooked up to an async process e.g a fetch API...
+  // Considered using a faux spinner / delay here.
   if (loadingData) {
     return (
       <div className="md:flex" data-testid="loading-message">
