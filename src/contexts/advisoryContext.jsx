@@ -83,9 +83,7 @@ export default function AdvisoryContextProvider({ children }) {
   };
 
   const [loadingData, setLoadingData] = useState(false);
-
   const [advisoryData, setAdvisoryData] = useState([]);
-
   const [filteredAdvisoryData, setFilteredAdvisoryData] = useState([]);
 
   // TODO: Break out methods in this userEffect - complexity is too high
@@ -132,8 +130,6 @@ export default function AdvisoryContextProvider({ children }) {
         });
         break;
     }
-    console.log("edited filter data", filteredData);
-
     setFilteredAdvisoryData(filteredData);
   }, [severityFilter, searchQuery, advisoryData, orderByFilter, patchedFilter]);
 
